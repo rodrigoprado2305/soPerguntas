@@ -1,0 +1,48 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{5ECA73AA-F9AE-46F5-8A6E-35D4245F59FE}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="soPerguntas\Windows\SOPerguntas.dproj">
+            <Dependencies/>
+        </Projects>
+        <Projects Include="editorSoPerguntas\ChaveSoPerguntas.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="SOPerguntas">
+        <MSBuild Projects="soPerguntas\Windows\SOPerguntas.dproj"/>
+    </Target>
+    <Target Name="SOPerguntas:Clean">
+        <MSBuild Projects="soPerguntas\Windows\SOPerguntas.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="SOPerguntas:Make">
+        <MSBuild Projects="soPerguntas\Windows\SOPerguntas.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="ChaveSoPerguntas">
+        <MSBuild Projects="editorSoPerguntas\ChaveSoPerguntas.dproj"/>
+    </Target>
+    <Target Name="ChaveSoPerguntas:Clean">
+        <MSBuild Projects="editorSoPerguntas\ChaveSoPerguntas.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="ChaveSoPerguntas:Make">
+        <MSBuild Projects="editorSoPerguntas\ChaveSoPerguntas.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="SOPerguntas;ChaveSoPerguntas"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="SOPerguntas:Clean;ChaveSoPerguntas:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="SOPerguntas:Make;ChaveSoPerguntas:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>

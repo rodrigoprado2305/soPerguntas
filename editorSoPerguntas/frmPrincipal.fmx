@@ -1,0 +1,90 @@
+object FormPrincipal: TFormPrincipal
+  Left = 0
+  Top = 0
+  BorderIcons = [biSystemMenu]
+  BorderStyle = Single
+  Caption = 'Customiza'#231#227'o do cliente'
+  ClientHeight = 203
+  ClientWidth = 413
+  Position = ScreenCenter
+  FormFactor.Width = 320
+  FormFactor.Height = 480
+  FormFactor.Devices = [Desktop]
+  OnShow = FormShow
+  DesignerMasterStyle = 0
+  object Panel1: TPanel
+    Align = Bottom
+    Position.Y = 166.000000000000000000
+    Size.Width = 413.000000000000000000
+    Size.Height = 37.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object Button1: TButton
+      Position.X = 5.000000000000000000
+      Position.Y = 8.000000000000000000
+      TabOrder = 4
+      Text = 'Conectar BD'
+      OnClick = Button1Click
+    end
+    object Button2: TButton
+      Position.X = 89.000000000000000000
+      Position.Y = 8.000000000000000000
+      Size.Width = 89.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 3
+      Text = 'Editar/Salvar'
+      OnClick = Button2Click
+    end
+  end
+  object GroupBox1: TGroupBox
+    Align = Client
+    Size.Width = 413.000000000000000000
+    Size.Height = 110.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'Edi'#231#227'o "Chave" do cliente:'
+    TabOrder = 2
+    object edtEscola: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 1
+      MaxLength = 80
+      Position.X = 8.000000000000000000
+      Position.Y = 37.000000000000000000
+      Size.Width = 393.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+    end
+    object lblEscola: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 21.000000000000000000
+      Text = 'Nome Escola/Cliente'
+      TabOrder = 0
+    end
+    object edtSenha: TEdit
+      Touch.InteractiveGestures = [LongTap, DoubleTap]
+      TabOrder = 3
+      MaxLength = 15
+      Position.X = 8.000000000000000000
+      Position.Y = 77.000000000000000000
+      Size.Width = 113.000000000000000000
+      Size.Height = 22.000000000000000000
+      Size.PlatformDefault = False
+      CharCase = ecUpperCase
+    end
+    object lblSenha: TLabel
+      Position.X = 8.000000000000000000
+      Position.Y = 61.000000000000000000
+      Text = 'Senha'
+      TabOrder = 2
+    end
+  end
+  object lblStatus: TLabel
+    Align = Bottom
+    Position.Y = 110.000000000000000000
+    Size.Width = 413.000000000000000000
+    Size.Height = 56.000000000000000000
+    Size.PlatformDefault = False
+    Text = 'BD:'
+    TabOrder = 0
+  end
+end
