@@ -19,18 +19,18 @@ type
     rectOkErro: TRectangle;
     imgErro: TImage;
     imgOk: TImage;
-    tmrRegraVisual: TTimer;
+    timer1: TTimer;
     barCabecalho: TToolBar;
     btnVoltar: TSpeedButton;
     lblPergunta: TLabel;
-    procedure tmrRegraVisualTimer(Sender: TObject);
+    procedure timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure RadioButton1Change(Sender: TObject);
   private
     { Private declarations }
     iFase, iAcerto, iErro: Integer;
     sRespClicada: String;
-    procedure carregaFase;
+    procedure proximaFase;
 
     procedure pintarRespostas;
 
@@ -51,7 +51,7 @@ uses uDMConexao, System.Math;
 
 {$R *.fmx}
 
-procedure TFormQuiz.carregaFase;
+procedure TFormQuiz.proximaFase;
 var
   iRandomPerg: Integer;
   slResposta: TStringList;
@@ -83,6 +83,9 @@ begin
   RadioButton2.FontColor := TAlphaColorRec.Black;
   RadioButton3.FontColor := TAlphaColorRec.Black;
   RadioButton4.FontColor := TAlphaColorRec.Black;
+
+  imgOk.Visible := False;
+  imgErro.Visible := False;
 
   slResposta := TStringList.Create;
   try
@@ -162,7 +165,7 @@ end;
 
 procedure TFormQuiz.FormShow(Sender: TObject);
 begin
-  tmrRegraVisual.Enabled := False;
+  timer1.Enabled := False;
   RadioButton1.StyledSettings := RadioButton1.StyledSettings - [TStyledSetting.FontColor];
   RadioButton2.StyledSettings := RadioButton1.StyledSettings;
   RadioButton3.StyledSettings := RadioButton1.StyledSettings;
@@ -193,7 +196,7 @@ begin
   iAcerto := 0;
   iErro := 0;
   sRespClicada := '';
-  carregaFase;
+  proximaFase;
 
   RadioButton1.Visible := True;
   RadioButton2.Visible := True;
@@ -229,36 +232,37 @@ begin
   pintarRespostas;
   if sRespClicada = dm.psResposta then
   begin
-    showmessage('Voce Acertou');
+    imgOk.Visible := True;
+    imgErro.Visible := False;
     inc(iAcerto);
   end
   else
   begin
-    showmessage('errou');
+    imgOk.Visible := False;
+    imgErro.Visible := True;
     inc(iErro);
   end;
-  //tmrRegraVisual.Enabled := True;
-  carregaFase;
+  timer1.Enabled := True;
 end;
 
-procedure TFormQuiz.tmrRegraVisualTimer(Sender: TObject);
+procedure TFormQuiz.timer1Timer(Sender: TObject);
 begin
-  {if pResposta[0] = pResposta[1] then
+  if sRespClicada = dm.psResposta then
   begin
     //tocaSom;
-    proximaFase;
+
   end
   else
   begin
     //tocaSom;
-    FormErro.Show;
+    //FormErro.Show;
   end;
-
+  proximaFase;
   timer1.Enabled := False;
-  btnResp01.Enabled := True;
+ { btnResp01.Enabled := True;
   btnResp02.Enabled := True;
   pResposta[0] := '';
-  pResposta[1] := '';  }
+  pResposta[1] := ''; }
 end;
 
 end.

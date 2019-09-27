@@ -23,9 +23,7 @@ type
     UsernameUnderLine: TLine;
     UserImage: TImage;
     lblTitulo3: TText;
-    BackgroundImage: TImage;
     btnAcessar: TButton;
-    GaussianBlurEffect1: TGaussianBlurEffect;
     procedure Button1Click(Sender: TObject);
     procedure imgLogoClick(Sender: TObject);
   private
@@ -45,8 +43,8 @@ uses System.IOUtils, uDMConexao, frmAssuntos;
 
 procedure TFormEntrada.Button1Click(Sender: TObject);
 begin
-  showmessage(TPath.GetDocumentsPath);
-  showmessage(dm.qryChave.FieldByName('nomeEscola').AsString);
+  //showmessage(TPath.GetDocumentsPath);
+  //showmessage(dm.qryChave.FieldByName('nomeEscola').AsString);
   formAssuntos.show;
 end;
 

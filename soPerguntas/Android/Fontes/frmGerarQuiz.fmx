@@ -27,4 +27,15 @@ object FormGerarQuiz: TFormGerarQuiz
     Text = 'Voltar'
     OnClick = Button2Click
   end
+  object Memo1: TMemo
+    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
+    DataDetectorTypes = []
+    Align = Top
+    Size.Width = 265.000000000000000000
+    Size.Height = 81.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 33
+    Viewport.Width = 265.000000000000000000
+    Viewport.Height = 81.000000000000000000
+  end
 end

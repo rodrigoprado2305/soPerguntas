@@ -22,9 +22,27 @@ nomeEscola varchar(255),
 senha varchar(100)
 );
 
+drop table estatisticas
+
+create table estatisticas(
+estatisticaid integer not null constraint pk_estatisticaid primary key AUTOINCREMENT,
+numjogadas varchar(255),
+media decimakl(2,2),
+assuntoid integer
+,constraint fk_media_assunto FOREIGN KEY (assuntoid) REFERENCES assunto(assuntoid)
+);
+
+insert into estatisticas (numjogadas, media, assuntoid) values (6, 10.00, 13);
+insert into estatisticas (numjogadas, media, assuntoid) values (10, 2.12, 8);
+
+select * from estatisticas
+delete from estatisticas
+
 --alter table perguntas add constraint fk_perguntas_assunto FOREIGN KEY (assuntoid) REFERENCES assunto(assuntoid);
 delete from perguntas;
 delete from assunto;
+
+update assunto set descricao = 'Adicionando: 0'+TimeToStr(Time) +' where assuntoid = 1
 
 select * from assunto;
 select * from perguntas;
