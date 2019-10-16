@@ -12,9 +12,12 @@ type
     Button1: TButton;
     Button2: TButton;
     Memo1: TMemo;
+    barCabecalho: TToolBar;
+    btnVoltar: TSpeedButton;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
     procedure FormShow(Sender: TObject);
+    procedure btnVoltarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -29,6 +32,11 @@ implementation
 uses frmQuiz, uDMConexao;
 
 {$R *.fmx}
+
+procedure TFormGerarQuiz.btnVoltarClick(Sender: TObject);
+begin
+  close;
+end;
 
 procedure TFormGerarQuiz.Button1Click(Sender: TObject);
 begin

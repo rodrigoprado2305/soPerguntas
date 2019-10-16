@@ -11,18 +11,20 @@ uses
 type
   TFormEntrada = class(TForm)
     VertScrollBox1: TVertScrollBox;
-    HeaderLayout: TLayout;
-    CenterLayout: TLayout;
-    lblTitulo1: TText;
-    lblTitulo2: TText;
-    LogoLayout: TLayout;
-    imgLogo: TImage;
-    FormLayout: TLayout;
+    rectPainel: TRectangle;
+    lytAcessar: TLayout;
     edtNome: TEdit;
-    lblTitulo3: TText;
+    imgNome: TImage;
+    lytHeader: TLayout;
+    lytLogo2: TLayout;
+    LogoCircle: TCircle;
+    imgLogo2: TImage;
+    lytLogo1: TLayout;
+    imgLogo1: TImage;
+    FillRGBEffect4: TFillRGBEffect;
     btnAcessar: TButton;
-    procedure Button1Click(Sender: TObject);
-    procedure imgLogoClick(Sender: TObject);
+    lytEspaco: TLayout;
+    procedure btnAcessarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,35 +36,19 @@ var
 
 implementation
 
-uses System.IOUtils, uDMConexao, frmAssuntos;
+uses frmAssuntos;
 
 {$R *.fmx}
 
-procedure TFormEntrada.Button1Click(Sender: TObject);
+procedure TFormEntrada.btnAcessarClick(Sender: TObject);
 begin
-  //showmessage(TPath.GetDocumentsPath);
-  //showmessage(dm.qryChave.FieldByName('nomeEscola').AsString);
-  formAssuntos.show;
-end;
-
-procedure TFormEntrada.imgLogoClick(Sender: TObject);
-var s: string;
-begin
-  s := 'Adicionando -1';
-  DM.qryTemp.Close;
-  DM.qryTemp.SQL.Text := ' update assunto set descricao = '+QuotedStr(s)+' where assuntoid = 1';
-
-  try
-    DM.qryTemp.ExecSQL;
-    showmessage('Dados alterados com sucesso!');
-  except
-    on E:Exception do
-    begin
-      showmessage('Erro ao tentar editar os dados. '+#13+
-                  'Excessão: '+E.Message);
-      Application.Terminate;
-    end;
+  if Trim(edtNome.Text) = '' then
+  begin
+    showmessage('Informe o nome do jogador para continuar!');
+    exit;
   end;
+
+  formAssuntos.show;
 end;
 
 end.
