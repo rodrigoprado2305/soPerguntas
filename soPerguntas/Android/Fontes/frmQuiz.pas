@@ -29,7 +29,9 @@ type
   private
     { Private declarations }
     iFase, iAcerto, iErro: Integer;
-    sRespClicada: String;
+
+    sRespClicada, sPerguntasUsadas: String;
+
     procedure proximaFase;
 
     procedure pintarRespostas;
@@ -47,7 +49,7 @@ const
 
 implementation
 
-uses uDMConexao, System.Math;
+uses uDMConexao, System.Math, frmPontuacao;
 
 {$R *.fmx}
 
@@ -56,18 +58,30 @@ var
   iRandomPerg: Integer;
   slResposta: TStringList;
   i: integer;
+  dMedia: double;
 begin
   if (iFase = NUM_FASES) then
   begin
-   showmessage('final');
-   // FormFinal.lblAcerto.Text := IntToStr(iAcerto);
-   // FormFinal.lblErro.Text := IntToStr(iErro);
-   // FormFinal.ShowModal;
-    Application.Terminate;
+    //showmessage('final');
+
+    FormPontuacao.lblRespondidas.Text := 'Perguntas respondidas: ' + IntToStr(iFase);
+    FormPontuacao.lblAcerto.Text := 'Acertos: ' + IntToStr(iAcerto);
+    FormPontuacao.lblErro.Text := 'Erros: ' + IntToStr(iErro);
+
+    FormPontuacao.lblPercAcerto.Text := '% Acerto: ' + FormatFloat('0.00',(iAcerto*100)/NUM_FASES);
+    FormPontuacao.lblPercErro.Text := '% Erro: ' + FormatFloat('0.00',(iErro*100)/NUM_FASES);
+    dMedia := (iAcerto/NUM_FASES)*10;
+    FormPontuacao.lblNota.Text := 'Nota jogo: ' + FormatFloat('0.00',dMedia);
+
+    FormPontuacao.Show;
+
+    close;
+
+    DM.atualizarEstatisticas(dMedia);
   end;
 
   inc(iFase);
-  lblFase.Text := IntToStr(iFase)+'/15';
+  lblFase.Text := IntToStr(iFase)+'/'+IntToStr(NUM_FASES);
 
   RadioButton1.IsChecked := False;
   RadioButton2.IsChecked := False;
@@ -90,11 +104,14 @@ begin
   slResposta := TStringList.Create;
   try
     randomize;
-    iRandomPerg := RandomRange(DM.piMin, DM.piMax);
+    repeat
+      iRandomPerg := RandomRange(DM.piMin, DM.piMax);
+    until Pos(IntToStr(iRandomPerg), sPerguntasUsadas) = 0;
     DM.filtraPergunta(DM.piAssuntoID, iRandomPerg);
     DM.psDescPergunta := DM.qryPerguntas.FieldByName('descricao').AsString;
     DM.psResposta := DM.qryPerguntas.FieldByName('resposta').AsString;
     lblPergunta.Text := DM.psDescPergunta;
+    sPerguntasUsadas := sPerguntasUsadas + IntToStr(iRandomPerg)+',';
 
     slResposta.Add(DM.psResposta);
     repeat
@@ -166,6 +183,9 @@ end;
 procedure TFormQuiz.FormShow(Sender: TObject);
 begin
   timer1.Enabled := False;
+
+  sPerguntasUsadas := '';
+
   RadioButton1.StyledSettings := RadioButton1.StyledSettings - [TStyledSetting.FontColor];
   RadioButton2.StyledSettings := RadioButton1.StyledSettings;
   RadioButton3.StyledSettings := RadioButton1.StyledSettings;
@@ -196,6 +216,7 @@ begin
   iAcerto := 0;
   iErro := 0;
   sRespClicada := '';
+  sPerguntasUsadas := '';
   proximaFase;
 
   RadioButton1.Visible := True;
@@ -229,18 +250,17 @@ end;
 
 procedure TFormQuiz.RadioButton1Change(Sender: TObject);
 begin
+  sRespClicada := TRadioButton(Sender).Text;
   pintarRespostas;
   if sRespClicada = dm.psResposta then
   begin
     imgOk.Visible := True;
     imgErro.Visible := False;
-    inc(iAcerto);
   end
   else
   begin
     imgOk.Visible := False;
     imgErro.Visible := True;
-    inc(iErro);
   end;
   timer1.Enabled := True;
 end;
@@ -249,11 +269,11 @@ procedure TFormQuiz.timer1Timer(Sender: TObject);
 begin
   if sRespClicada = dm.psResposta then
   begin
-    //tocaSom;
-
+    inc(iAcerto);
   end
   else
   begin
+    inc(iErro);
     //tocaSom;
     //FormErro.Show;
   end;

@@ -16,12 +16,9 @@ type
     lblTitulo1: TText;
     lblTitulo2: TText;
     LogoLayout: TLayout;
-    LogoBackgroundCircle: TCircle;
     imgLogo: TImage;
     FormLayout: TLayout;
     edtNome: TEdit;
-    UsernameUnderLine: TLine;
-    UserImage: TImage;
     lblTitulo3: TText;
     btnAcessar: TButton;
     procedure Button1Click(Sender: TObject);

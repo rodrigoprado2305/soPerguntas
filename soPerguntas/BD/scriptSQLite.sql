@@ -25,18 +25,34 @@ senha varchar(100)
 drop table estatisticas
 
 create table estatisticas(
-estatisticaid integer not null constraint pk_estatisticaid primary key AUTOINCREMENT,
-numjogadas varchar(255),
-media decimakl(2,2),
-assuntoid integer
-,constraint fk_media_assunto FOREIGN KEY (assuntoid) REFERENCES assunto(assuntoid)
+assuntoid integer not null constraint pk_assuntoidid primary key,
+numjogadas integer default 1,
+media      REAL (10, 2),
+mediageral REAL (10, 2),
+constraint fk_media_assunto FOREIGN KEY (assuntoid) REFERENCES assunto(assuntoid)
 );
 
-insert into estatisticas (numjogadas, media, assuntoid) values (6, 10.00, 13);
-insert into estatisticas (numjogadas, media, assuntoid) values (10, 2.12, 8);
 
-select * from estatisticas
-delete from estatisticas
+-- 9 - Estados
+insert into estatisticas (assuntoid, media, mediageral) values (9,7,7);
+
+update estatisticas set media = (mediageral + 10)/(numjogadas+1), mediageral = mediageral + 10, numjogadas = numjogadas+1 where assuntoid = 1;
+
+update estatisticas set media = (mediageral + 10)/(numjogadas+1), mediageral = mediageral + 7.00, numjogadas = numjogadas+1 where assuntoid = 1;
+
+update estatisticas set media = (mediageral + 10)/(numjogadas+1), mediageral = mediageral + 9.00, numjogadas = numjogadas+1 where assuntoid = 1;
+
+
+select * from estatisticas;
+
+
+delete from estatisticas;
+
+
+update estatisticas set mediageral = (7  + 10), numjogadas = (numjogadas + 1), media = (17/numjogadas) where assuntoid = 9;
+update estatisticas set mediageral = (mediageral + 7.25), numjogadas = (numjogadas + 1), media = (mediageral/numjogadas) where assuntoid = 9;
+update estatisticas set mediageral = (mediageral + 9), numjogadas = (numjogadas + 1), media = (mediageral/numjogadas) where assuntoid = 9;
+
 
 --alter table perguntas add constraint fk_perguntas_assunto FOREIGN KEY (assuntoid) REFERENCES assunto(assuntoid);
 delete from perguntas;

@@ -11,7 +11,6 @@ uses
 type
   TFormAssuntos = class(TForm)
     lvAssunto: TListView;
-    Label1: TLabel;
     procedure FormShow(Sender: TObject);
     procedure lvAssuntoItemClick(const Sender: TObject;
       const AItem: TListViewItem);
@@ -39,7 +38,6 @@ begin
 
   dm.qryAssunto.Close;
   dm.qryAssunto.Open('select assuntoid, descricao from assunto');
-
   lvAssunto.Items.Clear;
   lvAssunto.BeginUpdate;
   while not DM.qryAssunto.Eof do

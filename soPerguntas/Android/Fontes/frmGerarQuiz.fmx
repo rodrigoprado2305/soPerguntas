@@ -2,11 +2,12 @@ object FormGerarQuiz: TFormGerarQuiz
   Left = 0
   Top = 0
   Caption = 'Gerar Quiz'
-  ClientHeight = 315
-  ClientWidth = 265
+  ClientHeight = 350
+  ClientWidth = 222
   FormFactor.Width = 320
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object Button1: TButton
     Align = Center
@@ -19,8 +20,8 @@ object FormGerarQuiz: TFormGerarQuiz
   end
   object Button2: TButton
     Align = Bottom
-    Position.Y = 280.000000000000000000
-    Size.Width = 265.000000000000000000
+    Position.Y = 315.000000000000000000
+    Size.Width = 222.000000000000000000
     Size.Height = 35.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 32
@@ -31,11 +32,11 @@ object FormGerarQuiz: TFormGerarQuiz
     Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
     DataDetectorTypes = []
     Align = Top
-    Size.Width = 265.000000000000000000
+    Size.Width = 222.000000000000000000
     Size.Height = 81.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 33
-    Viewport.Width = 265.000000000000000000
+    Viewport.Width = 222.000000000000000000
     Viewport.Height = 81.000000000000000000
   end
 end

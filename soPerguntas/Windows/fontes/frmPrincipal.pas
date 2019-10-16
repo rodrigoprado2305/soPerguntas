@@ -40,10 +40,10 @@ type
   private
     { Private declarations }
     iFase, iAcerto, iErro, iAssuntoIDSelecionado: Integer;
-    dPercAcerto, dPercErro, dNota: Double;
+    //dPercAcerto, dPercErro, dNota: Double;
     sRespClicada, sPerguntasUsadas: String;
 
-    procedure carregaFase;
+    procedure proximaFase;
     procedure pintarRespostas;
     function verificarCheck: Boolean;
     procedure reset;
@@ -84,10 +84,10 @@ begin
     showmessage('Você Errou!!!');
     inc(iErro);
   end;
-  carregaFase;
+  proximaFase;
 end;
 
-procedure TFormPrincipal.carregaFase;
+procedure TFormPrincipal.proximaFase;
 var
   iRandomPerg: Integer;
   slResposta: TStringList;
@@ -237,13 +237,13 @@ begin
   iFase := 0;
   iAcerto := 0;
   iErro := 0;
-  dPercAcerto := 0;
-  dPercErro := 0;
-  dNota := 0;
+  //dPercAcerto := 0;
+  //dPercErro := 0;
+  //dNota := 0;
 
   sRespClicada := '';
   sPerguntasUsadas := '';
-  carregaFase;
+  proximaFase;
 
   RadioButton1.Visible := True;
   RadioButton2.Visible := True;
@@ -402,9 +402,9 @@ begin
   iFase := 0;
   iAcerto := 0;
   iErro := 0;
-  dPercAcerto := 0;
-  dPercErro := 0;
-  dNota := 0;
+  //dPercAcerto := 0;
+  //dPercErro := 0;
+  //dNota := 0;
 
   sRespClicada := '';
   sPerguntasUsadas := '';

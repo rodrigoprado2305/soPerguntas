@@ -14,6 +14,7 @@ type
     Memo1: TMemo;
     procedure Button1Click(Sender: TObject);
     procedure Button2Click(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -25,7 +26,7 @@ var
 
 implementation
 
-uses frmQuiz;
+uses frmQuiz, uDMConexao;
 
 {$R *.fmx}
 
@@ -33,11 +34,25 @@ procedure TFormGerarQuiz.Button1Click(Sender: TObject);
 begin
   formquiz.show;
   FormQuiz.gerarQuiz;
+  close;
 end;
 
 procedure TFormGerarQuiz.Button2Click(Sender: TObject);
 begin
   close;
+end;
+
+procedure TFormGerarQuiz.FormShow(Sender: TObject);
+var
+  i: integer;
+begin
+  DM.carregarEstatisticas;
+
+  i := DM.qryTemp.FieldByName('numjogadas').AsInteger;
+  memo1.Lines.Clear;
+  Memo1.Lines.Add('Nro. Quiz Jogados: '+IntToStr(i));
+  Memo1.Lines.Add('Total Pontos: ' + FormatFloat('0.00', DM.qryTemp.FieldByName('media').AsFloat));
+  Memo1.Lines.Add('Total Pontos Geral: ' + FormatFloat('0.00', DM.qryTemp.FieldByName('mediageral').AsFloat));
 end;
 
 end.

@@ -16,17 +16,10 @@ object FormAssuntos: TFormAssuntos
     FooterAppearanceClassName = 'TListHeaderObjects'
     Align = Client
     Size.Width = 300.000000000000000000
-    Size.Height = 367.000000000000000000
+    Size.Height = 400.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 1
+    CanSwipeDelete = False
     OnItemClick = lvAssuntoItemClick
-  end
-  object Label1: TLabel
-    Align = Top
-    Size.Width = 300.000000000000000000
-    Size.Height = 33.000000000000000000
-    Size.PlatformDefault = False
-    Text = 'n esquecer de tira o delete da list'
-    TabOrder = 2
   end
 end

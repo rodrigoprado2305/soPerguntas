@@ -10,7 +10,8 @@ uses
   frmQuiz in 'Fontes\frmQuiz.pas' {FormQuiz},
   uDMConexao in '..\..\Comum\uDMConexao.pas' {DM: TDataModule},
   uBiblioteca in '..\..\Comum\uBiblioteca.pas',
-  frmGerarQuiz in 'Fontes\frmGerarQuiz.pas' {FormGerarQuiz};
+  frmGerarQuiz in 'Fontes\frmGerarQuiz.pas' {FormGerarQuiz},
+  frmPontuacao in 'Fontes\frmPontuacao.pas' {FormPontuacao};
 
 {$R *.res}
 
@@ -22,5 +23,6 @@ begin
   Application.CreateForm(TFormAssuntos, FormAssuntos);
   Application.CreateForm(TFormQuiz, FormQuiz);
   Application.CreateForm(TFormGerarQuiz, FormGerarQuiz);
+  Application.CreateForm(TFormPontuacao, FormPontuacao);
   Application.Run;
 end.
