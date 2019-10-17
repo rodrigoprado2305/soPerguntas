@@ -11,9 +11,12 @@ uses
 type
   TFormAssuntos = class(TForm)
     lvAssunto: TListView;
+    barCabecalho: TToolBar;
+    btnVoltar: TSpeedButton;
     procedure FormShow(Sender: TObject);
     procedure lvAssuntoItemClick(const Sender: TObject;
       const AItem: TListViewItem);
+    procedure btnVoltarClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -28,6 +31,11 @@ implementation
 {$R *.fmx}
 
 uses uDMConexao, frmQuiz, frmGerarQuiz;
+
+procedure TFormAssuntos.btnVoltarClick(Sender: TObject);
+begin
+  close;
+end;
 
 procedure TFormAssuntos.FormShow(Sender: TObject);
 var

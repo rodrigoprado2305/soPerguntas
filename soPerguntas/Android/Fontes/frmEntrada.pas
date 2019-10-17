@@ -36,7 +36,7 @@ var
 
 implementation
 
-uses frmAssuntos;
+uses frmAssuntos, uDMConexao;
 
 {$R *.fmx}
 
@@ -48,6 +48,7 @@ begin
     exit;
   end;
 
+  DM.psNome := Trim(edtNome.Text);
   formAssuntos.show;
 end;
 

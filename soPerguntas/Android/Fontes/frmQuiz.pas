@@ -5,16 +5,11 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Controls.Presentation, FMX.Objects;
+  FMX.Controls.Presentation, FMX.Objects, FMX.Layouts;
 
 type
   TFormQuiz = class(TForm)
-    RadioButton1: TRadioButton;
-    RadioButton2: TRadioButton;
-    RadioButton3: TRadioButton;
-    RadioButton4: TRadioButton;
     lblFase: TLabel;
-    Image1: TImage;
     recFase: TRectangle;
     rectOkErro: TRectangle;
     imgErro: TImage;
@@ -22,7 +17,13 @@ type
     timer1: TTimer;
     barCabecalho: TToolBar;
     btnVoltar: TSpeedButton;
+    lytMeio: TLayout;
     lblPergunta: TLabel;
+    RadioButton1: TRadioButton;
+    RadioButton2: TRadioButton;
+    RadioButton3: TRadioButton;
+    RadioButton4: TRadioButton;
+    Rectangle1: TRectangle;
     procedure timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure RadioButton1Change(Sender: TObject);

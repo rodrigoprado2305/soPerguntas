@@ -23,37 +23,6 @@ object FormGerarQuiz: TFormGerarQuiz
   FormFactor.Devices = [Desktop]
   OnShow = FormShow
   DesignerMasterStyle = 3
-  object Button1: TButton
-    Align = Center
-    Size.Width = 202.000000000000000000
-    Size.Height = 55.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 30
-    Text = 'Gerar'
-    OnClick = Button1Click
-  end
-  object Button2: TButton
-    Align = Bottom
-    Position.Y = 414.000000000000000000
-    Size.Width = 325.000000000000000000
-    Size.Height = 35.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 32
-    Text = 'Voltar'
-    OnClick = Button2Click
-  end
-  object Memo1: TMemo
-    Touch.InteractiveGestures = [Pan, LongTap, DoubleTap]
-    DataDetectorTypes = []
-    Align = Bottom
-    Position.Y = 333.000000000000000000
-    Size.Width = 325.000000000000000000
-    Size.Height = 81.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 33
-    Viewport.Width = 325.000000000000000000
-    Viewport.Height = 81.000000000000000000
-  end
   object barCabecalho: TToolBar
     Size.Width = 325.000000000000000000
     Size.Height = 48.000000000000000000
@@ -67,6 +36,82 @@ object FormGerarQuiz: TFormGerarQuiz
       StyleLookup = 'backtoolbutton'
       Text = 'btnVoltar'
       OnClick = btnVoltarClick
+    end
+  end
+  object lytTela: TLayout
+    Align = Center
+    Size.Width = 249.000000000000000000
+    Size.Height = 289.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object btnGerarPerguntas: TButton
+      Align = Bottom
+      Position.Y = 245.000000000000000000
+      Size.Width = 249.000000000000000000
+      Size.Height = 44.000000000000000000
+      Size.PlatformDefault = False
+      TabOrder = 2
+      Text = 'Gerar perguntas'
+      OnClick = btnGerarPerguntasClick
+    end
+    object lblParabens: TLabel
+      Align = Top
+      StyledSettings = [Family, Size]
+      Size.Width = 249.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claBlue
+      TextSettings.HorzAlign = Center
+      Text = 'Estat'#237'sticas'
+      TabOrder = 0
+    end
+    object lblNome: TLabel
+      Align = Top
+      StyledSettings = [Family, Size]
+      Margins.Top = 10.000000000000000000
+      Position.Y = 33.000000000000000000
+      Size.Width = 249.000000000000000000
+      Size.Height = 23.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claChartreuse
+      TextSettings.HorzAlign = Center
+      Text = 'xxxxx'
+      TabOrder = 1
+    end
+    object lblNQuiz: TLabel
+      StyledSettings = [Family, Size, FontColor]
+      Position.X = 9.000000000000000000
+      Position.Y = 103.000000000000000000
+      Size.Width = 233.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'lblNQuiz'
+      TabOrder = 11
+    end
+    object lblTotalPontos: TLabel
+      StyledSettings = [Family, Size, FontColor]
+      Position.X = 9.000000000000000000
+      Position.Y = 131.000000000000000000
+      Size.Width = 233.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'lblTotalPontos'
+      TabOrder = 12
+    end
+    object lblTotalGeral: TLabel
+      StyledSettings = [Family, Size, FontColor]
+      Position.X = 9.000000000000000000
+      Position.Y = 159.000000000000000000
+      Size.Width = 233.000000000000000000
+      Size.Height = 20.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      Text = 'lblTotalGeral'
+      TabOrder = 10
     end
   end
 end

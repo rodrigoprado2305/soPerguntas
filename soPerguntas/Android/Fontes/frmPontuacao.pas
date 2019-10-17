@@ -10,7 +10,7 @@ uses
 
 type
   TFormPontuacao = class(TForm)
-    Layout1: TLayout;
+    lytTela: TLayout;
     btnCompartilhar: TButton;
     UserImage: TImage;
     FillRGBEffect4: TFillRGBEffect;
@@ -22,7 +22,9 @@ type
     lblPercAcerto: TLabel;
     lblPercErro: TLabel;
     lblNota: TLabel;
+    imgLogo1: TImage;
     procedure btnCompartilharClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -34,11 +36,18 @@ var
 
 implementation
 
+uses uDMConexao;
+
 {$R *.fmx}
 
 procedure TFormPontuacao.btnCompartilharClick(Sender: TObject);
 begin
   close;
+end;
+
+procedure TFormPontuacao.FormShow(Sender: TObject);
+begin
+  lblNome.Text := DM.psNome;
 end;
 
 end.
