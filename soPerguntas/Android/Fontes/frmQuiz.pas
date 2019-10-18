@@ -24,9 +24,11 @@ type
     RadioButton3: TRadioButton;
     RadioButton4: TRadioButton;
     Rectangle1: TRectangle;
+    btnInfo: TSpeedButton;
     procedure timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
     procedure RadioButton1Change(Sender: TObject);
+    procedure btnInfoClick(Sender: TObject);
   private
     { Private declarations }
     iFase, iAcerto, iErro: Integer;
@@ -46,11 +48,11 @@ var
   FormQuiz: TFormQuiz;
 
 const
-  NUM_FASES = 5;
+  NUM_FASES = 10;
 
 implementation
 
-uses uDMConexao, System.Math, frmPontuacao;
+uses uDMConexao, System.Math, frmPontuacao, frmInformacao;
 
 {$R *.fmx}
 
@@ -65,14 +67,14 @@ begin
   begin
     //showmessage('final');
 
-    FormPontuacao.lblRespondidas.Text := 'Perguntas respondidas: ' + IntToStr(iFase);
-    FormPontuacao.lblAcerto.Text := 'Acertos: ' + IntToStr(iAcerto);
-    FormPontuacao.lblErro.Text := 'Erros: ' + IntToStr(iErro);
+    FormPontuacao.lblRespondidas.Text := IntToStr(iFase);
+    FormPontuacao.lblAcerto.Text := IntToStr(iAcerto);
+    FormPontuacao.lblErro.Text := IntToStr(iErro);
 
-    FormPontuacao.lblPercAcerto.Text := '% Acerto: ' + FormatFloat('0.00',(iAcerto*100)/NUM_FASES);
-    FormPontuacao.lblPercErro.Text := '% Erro: ' + FormatFloat('0.00',(iErro*100)/NUM_FASES);
+    FormPontuacao.lblPercAcerto.Text := FormatFloat('0.00',(iAcerto*100)/NUM_FASES);
+    FormPontuacao.lblPercErro.Text := FormatFloat('0.00',(iErro*100)/NUM_FASES);
     dMedia := (iAcerto/NUM_FASES)*10;
-    FormPontuacao.lblNota.Text := 'Nota jogo: ' + FormatFloat('0.00',dMedia);
+    FormPontuacao.lblNota.Text := FormatFloat('0.00',dMedia);
 
     FormPontuacao.Show;
 
@@ -181,6 +183,11 @@ begin
   end;
 end;
 
+procedure TFormQuiz.btnInfoClick(Sender: TObject);
+begin
+  formInformacao.Show;
+end;
+
 procedure TFormQuiz.FormShow(Sender: TObject);
 begin
   timer1.Enabled := False;
@@ -206,12 +213,12 @@ begin
     exit;
   end;
 
-  showmessage(
+  {showmessage(
     'Assunto ID: ' + IntToStr(DM.piAssuntoID)
     + ' - Total de perguntas: ' + IntToStr(DM.piTotalPerguntas)
     + ' - Min: ' + IntToStr(DM.piMin)
     + ' - Max: ' + IntToStr(DM.piMax)
-    );
+    );       }
 
   iFase := 0;
   iAcerto := 0;

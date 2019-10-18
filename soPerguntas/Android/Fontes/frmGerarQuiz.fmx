@@ -38,6 +38,14 @@ object FormGerarQuiz: TFormGerarQuiz
       OnClick = btnVoltarClick
     end
   end
+  object recTela: TRectangle
+    Align = Center
+    Fill.Color = claSnow
+    Size.Width = 256.000000000000000000
+    Size.Height = 299.000000000000000000
+    Size.PlatformDefault = False
+    Stroke.Color = claWhite
+  end
   object lytTela: TLayout
     Align = Center
     Size.Width = 249.000000000000000000
@@ -80,7 +88,7 @@ object FormGerarQuiz: TFormGerarQuiz
       Text = 'xxxxx'
       TabOrder = 1
     end
-    object lblNQuiz: TLabel
+    object lbl1: TLabel
       StyledSettings = [Family, Size, FontColor]
       Position.X = 9.000000000000000000
       Position.Y = 103.000000000000000000
@@ -88,10 +96,22 @@ object FormGerarQuiz: TFormGerarQuiz
       Size.Height = 20.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'lblNQuiz'
+      Text = 'Nro. Quiz Jogados:'
       TabOrder = 11
+      object lblNQuiz: TLabel
+        Align = Right
+        StyledSettings = [Family, Size]
+        Position.X = 168.000000000000000000
+        Size.Width = 65.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        Text = '0'
+        TabOrder = 0
+      end
     end
-    object lblTotalPontos: TLabel
+    object lbl2: TLabel
       StyledSettings = [Family, Size, FontColor]
       Position.X = 9.000000000000000000
       Position.Y = 131.000000000000000000
@@ -99,10 +119,22 @@ object FormGerarQuiz: TFormGerarQuiz
       Size.Height = 20.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'lblTotalPontos'
+      Text = 'Total Pontos:'
       TabOrder = 12
+      object lblTotalPontos: TLabel
+        Align = Right
+        StyledSettings = [Family, Size]
+        Position.X = 168.000000000000000000
+        Size.Width = 65.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        Text = '0'
+        TabOrder = 0
+      end
     end
-    object lblTotalGeral: TLabel
+    object lbl3: TLabel
       StyledSettings = [Family, Size, FontColor]
       Position.X = 9.000000000000000000
       Position.Y = 159.000000000000000000
@@ -110,8 +142,20 @@ object FormGerarQuiz: TFormGerarQuiz
       Size.Height = 20.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'lblTotalGeral'
+      Text = 'Total Pontos Geral:'
       TabOrder = 10
+      object lblTotalGeral: TLabel
+        Align = Right
+        StyledSettings = [Family, Size]
+        Position.X = 168.000000000000000000
+        Size.Width = 65.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claBlue
+        Text = '0'
+        TabOrder = 0
+      end
     end
   end
 end

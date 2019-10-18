@@ -13,6 +13,7 @@ type
     lvAssunto: TListView;
     barCabecalho: TToolBar;
     btnVoltar: TSpeedButton;
+    lblTitulo: TLabel;
     procedure FormShow(Sender: TObject);
     procedure lvAssuntoItemClick(const Sender: TObject;
       const AItem: TListViewItem);
@@ -63,6 +64,7 @@ procedure TFormAssuntos.lvAssuntoItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
   DM.piAssuntoID := StrToInt(AItem.Detail);
+  DM.psTema := AItem.Text;
   DM.FiltraPergunta(DM.piAssuntoID);
   formgerarquiz.show;
 end;

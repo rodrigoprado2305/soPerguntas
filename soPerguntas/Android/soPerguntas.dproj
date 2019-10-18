@@ -398,6 +398,7 @@
         <Android_SplashImage470>..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\470x320.fw.png</Android_SplashImage470>
         <Android_SplashImage640>..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\640x480.fw.png</Android_SplashImage640>
         <Android_SplashImage960>..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\960x720.fw.png</Android_SplashImage960>
+        <EL_AdMob>true</EL_AdMob>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>
@@ -435,6 +436,10 @@
         </DCCReference>
         <DCCReference Include="Fontes\frmPontuacao.pas">
             <Form>FormPontuacao</Form>
+            <FormType>fmx</FormType>
+        </DCCReference>
+        <DCCReference Include="Fontes\frmInformacao.pas">
+            <Form>FormInformacao</Form>
             <FormType>fmx</FormType>
         </DCCReference>
         <BuildConfiguration Include="Release">
@@ -504,12 +509,6 @@
                         <Overwrite>true</Overwrite>
                     </Platform>
                 </DeployFile>
-                <DeployFile LocalName="..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\426x320.fw.png" Configuration="Release" Class="Android_SplashImage426">
-                    <Platform Name="Android">
-                        <RemoteName>splash_image.png</RemoteName>
-                        <Overwrite>true</Overwrite>
-                    </Platform>
-                </DeployFile>
                 <DeployFile LocalName="$(BDS)\bin\Artwork\Android\FM_SplashImage_426x320.png" Configuration="Debug" Class="Android_SplashImage426">
                     <Platform Name="Android">
                         <RemoteName>splash_image.png</RemoteName>
@@ -517,6 +516,12 @@
                     </Platform>
                 </DeployFile>
                 <DeployFile LocalName="..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\960x720.fw.png" Configuration="Release" Class="Android_SplashImage960">
+                    <Platform Name="Android">
+                        <RemoteName>splash_image.png</RemoteName>
+                        <Overwrite>true</Overwrite>
+                    </Platform>
+                </DeployFile>
+                <DeployFile LocalName="..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\426x320.fw.png" Configuration="Release" Class="Android_SplashImage426">
                     <Platform Name="Android">
                         <RemoteName>splash_image.png</RemoteName>
                         <Overwrite>true</Overwrite>

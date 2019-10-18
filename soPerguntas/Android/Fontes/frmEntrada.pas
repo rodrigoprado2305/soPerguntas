@@ -19,11 +19,11 @@ type
     lytLogo2: TLayout;
     LogoCircle: TCircle;
     imgLogo2: TImage;
-    lytLogo1: TLayout;
     imgLogo1: TImage;
     FillRGBEffect4: TFillRGBEffect;
     btnAcessar: TButton;
     lytEspaco: TLayout;
+    Label1: TLabel;
     procedure btnAcessarClick(Sender: TObject);
   private
     { Private declarations }

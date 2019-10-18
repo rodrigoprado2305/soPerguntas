@@ -33,7 +33,7 @@ object FormAssuntos: TFormAssuntos
     Size.Width = 300.000000000000000000
     Size.Height = 352.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 1
+    TabOrder = 0
     CanSwipeDelete = False
     OnItemClick = lvAssuntoItemClick
   end
@@ -41,7 +41,7 @@ object FormAssuntos: TFormAssuntos
     Size.Width = 300.000000000000000000
     Size.Height = 48.000000000000000000
     Size.PlatformDefault = False
-    TabOrder = 2
+    TabOrder = 1
     object btnVoltar: TSpeedButton
       Align = Left
       Size.Width = 48.000000000000000000
@@ -50,6 +50,20 @@ object FormAssuntos: TFormAssuntos
       StyleLookup = 'backtoolbutton'
       Text = 'btnVoltar'
       OnClick = btnVoltarClick
+    end
+    object lblTitulo: TLabel
+      Align = Client
+      StyledSettings = [Family]
+      Size.Width = 252.000000000000000000
+      Size.Height = 48.000000000000000000
+      Size.PlatformDefault = False
+      TextSettings.Font.Size = 13.000000000000000000
+      TextSettings.Font.StyleExt = {00070000000000000004000000}
+      TextSettings.FontColor = claYellowgreen
+      TextSettings.HorzAlign = Center
+      TextSettings.Trimming = None
+      Text = 'Escolha o tema para responder ao quiz'
+      TabOrder = 1
     end
   end
 end

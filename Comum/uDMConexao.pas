@@ -27,7 +27,7 @@ type
   public
     { Public declarations }
     piTotalPerguntas, piAssuntoID, piMin, piMax: Integer;
-    psDescPergunta, psResposta, psNome: String;
+    psDescPergunta, psResposta, psNome, psTema: String;
     procedure filtraPergunta(iAssuntoID: Integer; iPerguntaID: Integer = 0);
     procedure atualizarEstatisticas(dMedia: double);
     procedure carregarEstatisticas;
