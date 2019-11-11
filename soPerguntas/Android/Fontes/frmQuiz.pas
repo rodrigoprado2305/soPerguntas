@@ -5,7 +5,8 @@ interface
 uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
-  FMX.Controls.Presentation, FMX.Objects, FMX.Layouts;
+  FMX.Controls.Presentation, FMX.Objects, FMX.Layouts, FMX.Advertising,
+  FMX.Media, System.IOUtils;
 
 type
   TFormQuiz = class(TForm)
@@ -23,21 +24,27 @@ type
     RadioButton2: TRadioButton;
     RadioButton3: TRadioButton;
     RadioButton4: TRadioButton;
-    Rectangle1: TRectangle;
+    rectMeio: TRectangle;
     btnInfo: TSpeedButton;
+    BannerAd1: TBannerAd;
+    MediaPlayer1: TMediaPlayer;
+    chkEfeitosSonoros: TCheckBox;
     procedure timer1Timer(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure RadioButton1Change(Sender: TObject);
     procedure btnInfoClick(Sender: TObject);
+    procedure chkEfeitosSonorosChange(Sender: TObject);
+    procedure FormCreate(Sender: TObject);
+    procedure RadioButton1Click(Sender: TObject);
   private
     { Private declarations }
     iFase, iAcerto, iErro: Integer;
-
+    bMusica: Boolean;
     sRespClicada, sPerguntasUsadas: String;
 
     procedure proximaFase;
 
     procedure pintarRespostas;
+    procedure tocaSom(sArqNome: String);
 
   public
     { Public declarations }
@@ -188,6 +195,17 @@ begin
   formInformacao.Show;
 end;
 
+procedure TFormQuiz.chkEfeitosSonorosChange(Sender: TObject);
+begin
+  bMusica := not bMusica;
+end;
+
+procedure TFormQuiz.FormCreate(Sender: TObject);
+begin
+  //BannerAd1.AdUnitID := 'ca-app-pub-9350000386173480/4464322998';
+  bMusica := True;
+end;
+
 procedure TFormQuiz.FormShow(Sender: TObject);
 begin
   timer1.Enabled := False;
@@ -256,19 +274,28 @@ begin
     RadioButton4.FontColor := TAlphaColorRec.Red;
 end;
 
-procedure TFormQuiz.RadioButton1Change(Sender: TObject);
+procedure TFormQuiz.RadioButton1Click(Sender: TObject);
 begin
+  RadioButton1.Enabled := False;
+  RadioButton2.Enabled := False;
+  RadioButton3.Enabled := False;
+  RadioButton4.Enabled := False;
+
+  MediaPlayer1.Clear;
+
   sRespClicada := TRadioButton(Sender).Text;
   pintarRespostas;
   if sRespClicada = dm.psResposta then
   begin
     imgOk.Visible := True;
     imgErro.Visible := False;
+    tocaSom('rsrcOk');
   end
   else
   begin
     imgOk.Visible := False;
     imgErro.Visible := True;
+    tocaSom('rsrcErro');
   end;
   timer1.Enabled := True;
 end;
@@ -276,21 +303,53 @@ end;
 procedure TFormQuiz.timer1Timer(Sender: TObject);
 begin
   if sRespClicada = dm.psResposta then
-  begin
-    inc(iAcerto);
-  end
+    inc(iAcerto)
   else
-  begin
     inc(iErro);
-    //tocaSom;
-    //FormErro.Show;
-  end;
+
   proximaFase;
   timer1.Enabled := False;
- { btnResp01.Enabled := True;
-  btnResp02.Enabled := True;
-  pResposta[0] := '';
-  pResposta[1] := ''; }
+
+  RadioButton1.Enabled := True;
+  RadioButton2.Enabled := True;
+  RadioButton3.Enabled := True;
+  RadioButton4.Enabled := True;
+end;
+
+procedure TFormQuiz.tocaSom(sArqNome: String);
+var
+  ResStream: TResourceStream;
+  sFile: string;
+begin
+  if bMusica then
+  begin
+    if sArqNome = 'rsrcOk' then
+    begin
+      ResStream := TResourceStream.Create(HInstance, sArqNome, RT_RCDATA);
+      try
+        sFile := TPath.Combine(System.IOUtils.TPath.GetDownloadsPath, 'ok.mp3');
+        ResStream.Position := 0;
+        ResStream.SaveToFile(sFile);
+        MediaPlayer1.FileName := sFile;
+        MediaPlayer1.Play;
+      finally
+        ResStream.Free;
+      end;
+    end
+    else if sArqNome = 'rsrcErro' then
+    begin
+      ResStream := TResourceStream.Create(HInstance, sArqNome, RT_RCDATA);
+      try
+        sFile := TPath.Combine(System.IOUtils.TPath.GetDownloadsPath, 'erro.mp3');
+        ResStream.Position := 0;
+        ResStream.SaveToFile(sFile);
+        MediaPlayer1.FileName := sFile;
+        MediaPlayer1.Play;
+      finally
+        ResStream.Free;
+      end;
+    end;
+  end;
 end;
 
 end.

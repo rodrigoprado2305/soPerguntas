@@ -2,6 +2,10 @@ drop table chave;
 drop table perguntas;
 drop table assunto;
 
+select length(descricao), descricao, perguntaid, length(resposta), resposta from perguntas order by length(resposta)
+select * from perguntas
+Demonstração pública a respeito de algo ou alguém? --- a maior descricao eh 50
+Constelação --- a maior resposta e 11
 
 create table assunto (
   assuntoid integer not null constraint pk_assuntoid primary key AUTOINCREMENT,
@@ -42,8 +46,8 @@ update estatisticas set media = (mediageral + 10)/(numjogadas+1), mediageral = m
 
 update estatisticas set media = (mediageral + 10)/(numjogadas+1), mediageral = mediageral + 9.00, numjogadas = numjogadas+1 where assuntoid = 1;
 
-
 select * from estatisticas;
+
 
 
 delete from estatisticas;
