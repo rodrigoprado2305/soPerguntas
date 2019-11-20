@@ -126,6 +126,15 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\960x720.fw.png" Condition="'$(Config)'=='Release'">
+            <RemoteDir>soPerguntas\res\drawable-xlarge\</RemoteDir>
+            <RemoteName>splash_image.png</RemoteName>
+            <DeployClass>Android_SplashImage960</DeployClass>
+            <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\426x320.fw.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>soPerguntas\res\drawable-small\</RemoteDir>
             <RemoteName>splash_image.png</RemoteName>
@@ -139,15 +148,6 @@
             <RemoteDir>soPerguntas\res\drawable-small\</RemoteDir>
             <RemoteName>splash_image.png</RemoteName>
             <DeployClass>Android_SplashImage426</DeployClass>
-            <Operation>1</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
-        <DeployFile Include="..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\960x720.fw.png" Condition="'$(Config)'=='Release'">
-            <RemoteDir>soPerguntas\res\drawable-xlarge\</RemoteDir>
-            <RemoteName>splash_image.png</RemoteName>
-            <DeployClass>Android_SplashImage960</DeployClass>
             <Operation>1</Operation>
             <LocalCommand/>
             <RemoteCommand/>
@@ -186,6 +186,15 @@
             <RemoteName>gdbserver</RemoteName>
             <DeployClass>AndroidGDBServer</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="ok.mp3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>soPerguntas\assets\internal\</RemoteDir>
+            <RemoteName>ok.mp3</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
@@ -479,11 +488,29 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
+        <DeployFile Include="..\BD\perguntas.sdb" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>soPerguntas\assets\internal\</RemoteDir>
+            <RemoteName>perguntas.sdb</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
         <DeployFile Include="..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\72x72.fw.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>soPerguntas\res\drawable-hdpi\</RemoteDir>
             <RemoteName>ic_launcher.png</RemoteName>
             <DeployClass>Android_LauncherIcon72</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="erro.mp3" Condition="'$(Config)'=='Debug'">
+            <RemoteDir>soPerguntas\assets\internal\</RemoteDir>
+            <RemoteName>erro.mp3</RemoteName>
+            <DeployClass>ProjectFile</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>

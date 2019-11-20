@@ -54,17 +54,14 @@ begin
 end;
 
 procedure TFormGerarQuiz.FormShow(Sender: TObject);
-var
-  i: integer;
+
 begin
   DM.carregarEstatisticas;
 
   lblNome.Text := DM.psNome;
-
-  i := DM.qryTemp.FieldByName('numjogadas').AsInteger;
-  lblNQuiz.Text := IntToStr(i);
+  lblNQuiz.Text := DM.qryTemp.FieldByName('numjogadas').AsString;
   lblTotalPontos.Text := FormatFloat('0.00', DM.qryTemp.FieldByName('media').AsFloat);
-  lblTotalGeral.Text := FormatFloat('0.00', DM.qryTemp.FieldByName('mediageral').AsFloat);
+  lblTotalGeral.Text := FormatFloat('0', DM.qryTemp.FieldByName('mediageral').AsFloat);
 end;
 
 end.

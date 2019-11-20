@@ -80,18 +80,18 @@ object FormGerarQuiz: TFormGerarQuiz
       Margins.Top = 10.000000000000000000
       Position.Y = 33.000000000000000000
       Size.Width = 249.000000000000000000
-      Size.Height = 23.000000000000000000
+      Size.Height = 45.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.FontColor = claChartreuse
       TextSettings.HorzAlign = Center
-      Text = 'xxxxx'
+      Text = 'akjsdhfklajsdlfjalskjdfaljksj ssssssssssss  sddddddddddddddddd'
       TabOrder = 1
     end
     object lbl1: TLabel
       StyledSettings = [Family, Size, FontColor]
       Position.X = 9.000000000000000000
-      Position.Y = 103.000000000000000000
+      Position.Y = 119.000000000000000000
       Size.Width = 233.000000000000000000
       Size.Height = 20.000000000000000000
       Size.PlatformDefault = False
@@ -114,12 +114,12 @@ object FormGerarQuiz: TFormGerarQuiz
     object lbl2: TLabel
       StyledSettings = [Family, Size, FontColor]
       Position.X = 9.000000000000000000
-      Position.Y = 131.000000000000000000
+      Position.Y = 147.000000000000000000
       Size.Width = 233.000000000000000000
       Size.Height = 20.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'Total Pontos:'
+      Text = 'Nota m'#233'dia:'
       TabOrder = 12
       object lblTotalPontos: TLabel
         Align = Right
@@ -137,12 +137,12 @@ object FormGerarQuiz: TFormGerarQuiz
     object lbl3: TLabel
       StyledSettings = [Family, Size, FontColor]
       Position.X = 9.000000000000000000
-      Position.Y = 159.000000000000000000
+      Position.Y = 175.000000000000000000
       Size.Width = 233.000000000000000000
       Size.Height = 20.000000000000000000
       Size.PlatformDefault = False
       TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'Total Pontos Geral:'
+      Text = 'Respostas certas:'
       TabOrder = 10
       object lblTotalGeral: TLabel
         Align = Right

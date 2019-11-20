@@ -59,7 +59,7 @@ const
 
 implementation
 
-uses uDMConexao, System.Math, frmPontuacao, frmInformacao;
+uses uDMConexao, System.Math, frmPontuacao, frmInformacao, Data.DB;
 
 {$R *.fmx}
 
