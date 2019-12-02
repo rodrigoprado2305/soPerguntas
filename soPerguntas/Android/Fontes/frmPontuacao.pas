@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.Controls.Presentation, FMX.ScrollBox, FMX.Memo, FMX.Layouts, FMX.Effects,
-  FMX.Filter.Effects, FMX.Objects, FMX.StdCtrls;
+  FMX.Filter.Effects, FMX.Objects, FMX.StdCtrls, frmEntrada;
 
 type
   TFormPontuacao = class(TForm)

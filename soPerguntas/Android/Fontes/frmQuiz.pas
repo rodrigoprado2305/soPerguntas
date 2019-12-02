@@ -6,7 +6,7 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs, FMX.StdCtrls,
   FMX.Controls.Presentation, FMX.Objects, FMX.Layouts, FMX.Advertising,
-  FMX.Media, System.IOUtils;
+  FMX.Media, System.IOUtils, frmEntrada;
 
 type
   TFormQuiz = class(TForm)
@@ -35,6 +35,7 @@ type
     procedure chkEfeitosSonorosChange(Sender: TObject);
     procedure FormCreate(Sender: TObject);
     procedure RadioButton1Click(Sender: TObject);
+    procedure btnVoltarClick(Sender: TObject);
   private
     { Private declarations }
     iFase, iAcerto, iErro: Integer;
@@ -193,6 +194,11 @@ end;
 procedure TFormQuiz.btnInfoClick(Sender: TObject);
 begin
   formInformacao.Show;
+end;
+
+procedure TFormQuiz.btnVoltarClick(Sender: TObject);
+begin
+  close;
 end;
 
 procedure TFormQuiz.chkEfeitosSonorosChange(Sender: TObject);

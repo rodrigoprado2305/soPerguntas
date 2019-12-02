@@ -11,7 +11,6 @@ uses
 type
   TFormEntrada = class(TForm)
     VertScrollBox1: TVertScrollBox;
-    rectPainel: TRectangle;
     lytAcessar: TLayout;
     edtNome: TEdit;
     imgNome: TImage;
@@ -23,7 +22,7 @@ type
     FillRGBEffect4: TFillRGBEffect;
     btnAcessar: TButton;
     lytEspaco: TLayout;
-    Label1: TLabel;
+    StyleBook1: TStyleBook;
     procedure btnAcessarClick(Sender: TObject);
   private
     { Private declarations }
