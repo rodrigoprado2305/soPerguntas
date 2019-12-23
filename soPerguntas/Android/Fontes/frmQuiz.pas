@@ -208,12 +208,14 @@ end;
 
 procedure TFormQuiz.FormCreate(Sender: TObject);
 begin
-  //BannerAd1.AdUnitID := 'ca-app-pub-9350000386173480/4464322998';
+  BannerAd1.AdUnitID := 'ca-app-pub-9350000386173480/6321598059';
   bMusica := True;
 end;
 
 procedure TFormQuiz.FormShow(Sender: TObject);
 begin
+  BannerAd1.LoadAd;
+
   timer1.Enabled := False;
 
   sPerguntasUsadas := '';
