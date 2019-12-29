@@ -9,14 +9,14 @@ Constelação --- a maior resposta e 11
 
 create table assunto (
   assuntoid integer not null constraint pk_assuntoid primary key AUTOINCREMENT,
-  descricao varchar(20)
+  descricao varchar(26)
 );
 
 create table perguntas (
 perguntaid  integer constraint pk_perguntaid primary key AUTOINCREMENT,
 assuntoid integer,
-descricao varchar(255),
-resposta varchar(255)
+descricao varchar(167),
+resposta varchar(57)
 ,constraint fk_perguntas_assunto FOREIGN KEY (assuntoid) REFERENCES assunto(assuntoid)
 );
 
@@ -65,7 +65,10 @@ delete from assunto;
 update assunto set descricao = 'Adicionando: 0'+TimeToStr(Time) +' where assuntoid = 1
 
 select * from assunto;
-select * from perguntas;
+select COUNT(*) from perguntas;
+
+select length(descricao),* from perguntas where perguntaid >= 1000
+
 select chaveid, nomeEscola, senha from chave;
 
 select a.assuntoid, a.descricao, p.perguntaid, p.descricao, p.resposta 

@@ -8,7 +8,7 @@ uses
   Vcl.Grids, Vcl.DBGrids, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Param, FireDAC.Stan.Error, FireDAC.DatS, FireDAC.Phys.Intf,
   FireDAC.DApt.Intf, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
-  FireDAC.Stan.StorageBin, Vcl.ExtCtrls;
+  FireDAC.Stan.StorageBin, Vcl.ExtCtrls, Vcl.Samples.Gauges;
 
 type
   TForm1 = class(TForm)
@@ -29,6 +29,7 @@ type
     Button3: TButton;
     Button4: TButton;
     Splitter1: TSplitter;
+    Gauge1: TGauge;
     procedure Button2Click(Sender: TObject);
     procedure Button1Click(Sender: TObject);
     procedure Button3Click(Sender: TObject);
@@ -104,14 +105,41 @@ end;
 procedure TForm1.Button1Click(Sender: TObject);
 var
   i, iAssuntoID : integer;
+
+  iMaiorAss, iMaiorAss2: integer;
+  iMaiorFra, iMaiorFra2: integer;
 begin
   iAssuntoID := 0;
   mtExcel.EmptyDataSet;
+
+  Gauge1.MinValue := 0;
+  Gauge1.Progress := 0;
+  Gauge1.MaxValue := StringGrid1.RowCount -1;
+  showmessage(inttostr(Gauge1.MaxValue));
+  iMaiorFra := 0;
+  iMaiorFra2 := 0;
+
+  iMaiorAss := 0;
+  iMaiorAss2 := 0;
+
+
+  mtExcel.DisableControls;
 
   for i := 1 to StringGrid1.RowCount -1 do
   begin
     if not mtExcel.Locate('AssuntoDesc',StringGrid1.Cells[0,i]) then
       inc(iAssuntoID);
+
+    iMaiorAss := Length(StringGrid1.Cells[2,i]);
+
+    if iMaiorAss > iMaiorAss2 then
+       iMaiorAss2 := iMaiorAss;
+
+      iMaiorFra := Length(StringGrid1.Cells[1,i]);
+
+    if iMaiorFra > iMaiorFra2 then
+       iMaiorFra2 := iMaiorFra;
+
 
     mtExcel.AppendRecord([
       iAssuntoID,
@@ -120,15 +148,23 @@ begin
       StringGrid1.Cells[1,i],
       StringGrid1.Cells[2,i]
            ]);
+      Gauge1.Progress := Gauge1.Progress + 1;
+
+    application.ProcessMessages;
   end;
+
+  showmessage('excel para o dataset CONCLUÍDO: Max Frase: '+IntToStr(iMaiorFra2)
+  + ' Max Assunto: '+IntToStr(iMaiorAss2));
 end;
 
 procedure TForm1.Button2Click(Sender: TObject);
 var s: string;
 begin
-
-  s := 'D:\Desenvolvimento\Delphi\trunk\Projeto Educando\soPerguntas\Importar\Win32\Debug\SOPERGUNTAS_TESTE_SETEMBRO.xlsx';
+                                                                                                              //SOPERGUNTAS_TESTE_SETEMBRO.xlsx
+  s := 'D:\Desenvolvimento\Delphi\trunk\Projeto Educando\soPerguntas\Importar\FINAL_SOPERGUNTAS_2020.xlsx';   //FINAL_SOPERGUNTAS_2020.xlsx';
   XlsToStringGrid(stringgrid1,s);
+
+  showmessage('excel para o STRINGGRID CONCLUÍDO');
 end;
 
 procedure TForm1.Button3Click(Sender: TObject);
@@ -181,6 +217,12 @@ begin
 
   mtExcel.First;
 
+  Gauge1.MinValue := 0;
+  Gauge1.Progress := 0;
+  Gauge1.MaxValue := mtExcel.RecordCount;
+
+  showmessage(inttostr(mtExcel.RecordCount));
+
   mtExcel.DisableControls;
   while not mtExcel.Eof do
   begin
@@ -196,13 +238,21 @@ begin
       dm.qryTemp.ExecSQL;
     end;
 
-    dm.qryTemp.Close;
+    {dm.qryTemp.Close;
     dm.qryTemp.SQL.Text := 'insert into perguntas (perguntaid, assuntoid, descricao, resposta) values ('+
       mtExcel.FieldByName('PerguntaID').AsString +', '+
       mtExcel.FieldByName('AssuntoID').AsString +', '+
       QuotedStr(mtExcel.FieldByName('PerguntaDesc').AsString) +', '+
       QuotedStr(mtExcel.FieldByName('Resposta').AsString) +
-      ')';
+      ')';  }
+
+    dm.qryTemp.Close;
+    dm.qryTemp.SQL.Text :=
+      'insert into perguntas (perguntaid, assuntoid, descricao, resposta) values (:perguntaid, :assuntoid, :descricao, :resposta)';
+    dm.qryTemp.ParamByName('perguntaid').AsInteger := mtExcel.FieldByName('PerguntaID').AsInteger;
+    dm.qryTemp.ParamByName('assuntoid').AsInteger := mtExcel.FieldByName('AssuntoID').AsInteger;
+    dm.qryTemp.ParamByName('descricao').AsString := mtExcel.FieldByName('PerguntaDesc').AsString;
+    dm.qryTemp.ParamByName('resposta').AsString := mtExcel.FieldByName('Resposta').AsString;
     try
       dm.qryTemp.ExecSQL;
     Except
@@ -216,6 +266,9 @@ begin
       end;
     end;
 
+
+    Gauge1.Progress := Gauge1.Progress + 1;
+    application.ProcessMessages;
     mtExcel.Next;
   end;
 
