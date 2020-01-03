@@ -23,6 +23,7 @@ type
     procedure Button2Click(Sender: TObject);
   private
     { Private declarations }
+    procedure carregarDados;
   public
     { Public declarations }
   end;
@@ -40,14 +41,18 @@ procedure TFormPrincipal.Button1Click(Sender: TObject);
 begin
   try
     if not DM.BD.Connected then
-      DM.BD.Connected := True;
+      DM.BD.Connected := True
+    else
+    begin
+      showmessage('O Banco de Dados já esta conectado!');
+      exit;
+    end;
+
 
     if not DM.qryChave.Active then
       DM.qryChave.Active := True;
 
-    edtEscola.Text := DM.qryChave.FieldByName('nomeEscola').AsString;
-    edtSenha.Text := DM.qryChave.FieldByName('senha').AsString;
-    edtEscola.Tag := DM.qryChave.FieldByName('chaveid').AsInteger;
+    carregarDados;
 
     showmessage('Banco de Dados conectado com sucesso!');
   except
@@ -79,15 +84,20 @@ begin
   end;
 end;
 
-procedure TFormPrincipal.FormShow(Sender: TObject);
+procedure TFormPrincipal.carregarDados;
 begin
   edtEscola.Text := DescriptografarSenha(Trim(DM.qryChave.FieldByName('nomeEscola').AsString),23);
   edtSenha.Text := DescriptografarSenha(Trim(DM.qryChave.FieldByName('senha').AsString),23);
   edtEscola.Tag := DM.qryChave.FieldByName('chaveid').AsInteger;
+end;
+
+procedure TFormPrincipal.FormShow(Sender: TObject);
+begin
+  carregarDados;
 
   lblStatus.Text := '[BD] '+fnCaminhoBD;
   //Caption := '  Gestão PE Versão ' + getVersaoExe(Application.ExeName);
-  Caption := '  Chave do cliente 1.0 - 14/09/2019 12:55';
+  Caption := '  Chave do cliente 1.1 - 31/12/2019 11:28';
 
 end;
 
