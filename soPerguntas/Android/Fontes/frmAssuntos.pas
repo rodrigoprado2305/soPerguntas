@@ -46,14 +46,23 @@ begin
     DM.BD.Connected := True;
 
   dm.qryAssunto.Close;
-  dm.qryAssunto.Open('select assuntoid, descricao from assunto');
+  //dm.qryAssunto.Open('select assuntoid, descricao from assunto');
+  dm.qryAssunto.SQL.Text :=
+    'select ' +
+    '  a.assuntoid, a.descricao, e.media ' +
+    'from ' +
+    '  assunto a ' +
+    '  left join estatisticas as e on (e.assuntoid = a.assuntoid) ';
+  dm.qryAssunto.Open;
+
   lvAssunto.Items.Clear;
   lvAssunto.BeginUpdate;
   while not DM.qryAssunto.Eof do
   begin
     liItem := lvAssunto.Items.Add;
-    liItem.Detail := DM.qryAssunto.FieldByName('assuntoid').AsString;
+    liItem.Detail := 'Nota média: ' + FormatFloat('0.00', DM.qryAssunto.FieldByName('media').AsFloat); //DM.qryAssunto.FieldByName('assuntoid').AsString;
     liItem.Text := DM.qryAssunto.FieldByName('descricao').AsString;
+    liItem.Tag := DM.qryAssunto.FieldByName('assuntoid').AsInteger;
 
     DM.qryAssunto.Next;
   end;
@@ -63,7 +72,7 @@ end;
 procedure TFormAssuntos.lvAssuntoItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
-  DM.piAssuntoID := StrToInt(AItem.Detail);
+  DM.piAssuntoID := AItem.Tag;//(AItem.Detail);
   DM.psTema := AItem.Text;
   DM.FiltraPergunta(DM.piAssuntoID);
   formgerarquiz.show;

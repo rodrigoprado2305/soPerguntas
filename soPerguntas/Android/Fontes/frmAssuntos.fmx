@@ -25,8 +25,8 @@ object FormAssuntos: TFormAssuntos
   OnShow = FormShow
   DesignerMasterStyle = 3
   object lvAssunto: TListView
-    ItemAppearanceClassName = 'TListItemAppearance'
-    ItemEditAppearanceClassName = 'TListItemShowCheckAppearance'
+    ItemAppearanceClassName = 'TImageListItemBottomDetailAppearance'
+    ItemEditAppearanceClassName = 'TImageListItemBottomDetailShowCheckAppearance'
     HeaderAppearanceClassName = 'TListHeaderObjects'
     FooterAppearanceClassName = 'TListHeaderObjects'
     Align = Client
