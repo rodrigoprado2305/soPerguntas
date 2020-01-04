@@ -24,11 +24,7 @@ type
     lblPercErro1: TLabel;
     lblNota1: TLabel;
     imgLogo1: TImage;
-    lblLinhaBot: TLabel;
     lblResultados: TLabel;
-    lblLinhaTop: TLabel;
-    barCabecalho: TToolBar;
-    btnSair: TSpeedButton;
     lblAcerto: TLabel;
     lblPercErro: TLabel;
     lblNota: TLabel;
@@ -36,9 +32,15 @@ type
     lblRespondidas: TLabel;
     lblPercAcerto: TLabel;
     lytGeral: TLayout;
+    lblTitulo: TLabel;
+    btnNovoQuiz: TButton;
+    Image1: TImage;
+    FillRGBEffect1: TFillRGBEffect;
+    lineTop: TLine;
+    lineBot: TLine;
     procedure btnCompartilharClick(Sender: TObject);
     procedure FormShow(Sender: TObject);
-    procedure btnSairClick(Sender: TObject);
+    procedure btnNovoQuizClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -55,7 +57,7 @@ uses
   Androidapi.Jni.Net, Androidapi.Jni.JavaTypes, idUri, Androidapi.Jni,
   Androidapi.JNIBridge, Androidapi.Helpers,
   FMX.Platform.Android, AndroidApi.Jni.App, AndroidAPI.jni.OS,
-  uDMConexao, System.IOUtils;
+  uDMConexao, System.IOUtils, frmAssuntos;
 
 {$R *.fmx}
 
@@ -100,9 +102,10 @@ begin
   close;
 end;
 
-procedure TFormPontuacao.btnSairClick(Sender: TObject);
+procedure TFormPontuacao.btnNovoQuizClick(Sender: TObject);
 begin
   close;
+  FormAssuntos.carregarListas;
 end;
 
 procedure TFormPontuacao.FormShow(Sender: TObject);

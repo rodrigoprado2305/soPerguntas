@@ -6,14 +6,19 @@ uses
   System.SysUtils, System.Types, System.UITypes, System.Classes, System.Variants,
   FMX.Types, FMX.Controls, FMX.Forms, FMX.Graphics, FMX.Dialogs,
   FMX.ListView.Types, FMX.ListView.Appearances, FMX.ListView.Adapters.Base,
-  FMX.ListView, FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls, frmEntrada;
+  FMX.ListView, FMX.Objects, FMX.Controls.Presentation, FMX.StdCtrls, frmEntrada,
+  FMX.Layouts;
 
 type
   TFormAssuntos = class(TForm)
-    lvAssunto: TListView;
     barCabecalho: TToolBar;
     btnVoltar: TSpeedButton;
     lblTitulo: TLabel;
+    Rectangle1: TRectangle;
+    lvAssunto: TListView;
+    Layout1: TLayout;
+    Layout2: TLayout;
+    Image2: TImage;
     procedure FormShow(Sender: TObject);
     procedure lvAssuntoItemClick(const Sender: TObject;
       const AItem: TListViewItem);
@@ -22,6 +27,7 @@ type
     { Private declarations }
   public
     { Public declarations }
+    procedure carregarListas;
   end;
 
 var
@@ -38,7 +44,7 @@ begin
   close;
 end;
 
-procedure TFormAssuntos.FormShow(Sender: TObject);
+procedure TFormAssuntos.carregarListas;
 var
   liItem: TListViewItem;
 begin
@@ -67,6 +73,11 @@ begin
     DM.qryAssunto.Next;
   end;
   lvAssunto.EndUpdate;
+end;
+
+procedure TFormAssuntos.FormShow(Sender: TObject);
+begin
+  carregarListas;
 end;
 
 procedure TFormAssuntos.lvAssuntoItemClick(const Sender: TObject;

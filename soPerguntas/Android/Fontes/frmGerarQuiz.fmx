@@ -4,20 +4,8 @@ object FormGerarQuiz: TFormGerarQuiz
   Caption = 'Gerar Quiz'
   ClientHeight = 449
   ClientWidth = 325
-  Fill.Kind = Gradient
-  Fill.Gradient.Points = <
-    item
-      Color = xFFF03B3B
-      Offset = 0.000000000000000000
-    end
-    item
-      Color = claWhite
-      Offset = 1.000000000000000000
-    end>
-  Fill.Gradient.StartPosition.X = 0.500000000000000000
-  Fill.Gradient.StartPosition.Y = 1.000000000000000000
-  Fill.Gradient.StopPosition.X = 0.499999970197677600
-  Fill.Gradient.StopPosition.Y = 0.000000000000000000
+  Fill.Color = xFFFF7676
+  Fill.Kind = Solid
   StyleBook = FormEntrada.StyleBook1
   FormFactor.Width = 320
   FormFactor.Height = 480
@@ -26,137 +14,164 @@ object FormGerarQuiz: TFormGerarQuiz
   DesignerMasterStyle = 3
   object barCabecalho: TToolBar
     Size.Width = 325.000000000000000000
-    Size.Height = 48.000000000000000000
+    Size.Height = 40.000000000000000000
     Size.PlatformDefault = False
     TabOrder = 0
     object btnVoltar: TSpeedButton
       Align = Left
-      Size.Width = 48.000000000000000000
-      Size.Height = 48.000000000000000000
+      Size.Width = 40.000000000000000000
+      Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
       StyleLookup = 'priortoolbutton'
       Text = 'btnVoltar'
       OnClick = btnVoltarClick
     end
-  end
-  object recTela: TRectangle
-    Align = Center
-    Fill.Color = claSnow
-    Size.Width = 256.000000000000000000
-    Size.Height = 299.000000000000000000
-    Size.PlatformDefault = False
-    Stroke.Color = claWhite
-  end
-  object lytTela: TLayout
-    Align = Center
-    Size.Width = 249.000000000000000000
-    Size.Height = 289.000000000000000000
-    Size.PlatformDefault = False
-    TabOrder = 1
-    object btnGerarPerguntas: TButton
-      Align = Bottom
-      Position.Y = 245.000000000000000000
-      Size.Width = 249.000000000000000000
-      Size.Height = 44.000000000000000000
+    object lblTitulo: TLabel
+      Align = Client
+      StyledSettings = [Family]
+      Size.Width = 285.000000000000000000
+      Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 2
-      Text = 'Gerar perguntas'
-      OnClick = btnGerarPerguntasClick
-    end
-    object lblParabens: TLabel
-      Align = Top
-      StyledSettings = [Family, Size]
-      Size.Width = 249.000000000000000000
-      Size.Height = 23.000000000000000000
-      Size.PlatformDefault = False
+      TextSettings.Font.Size = 20.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.FontColor = claBlue
       TextSettings.HorzAlign = Center
-      Text = 'Estat'#237'sticas'
-      TabOrder = 0
-    end
-    object lblNome: TLabel
-      Align = Top
-      StyledSettings = [Family, Size]
-      Margins.Top = 10.000000000000000000
-      Position.Y = 33.000000000000000000
-      Size.Width = 249.000000000000000000
-      Size.Height = 45.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      TextSettings.FontColor = claChartreuse
-      TextSettings.HorzAlign = Center
-      Text = 'akjsdhfklajsdlfjalskjdfaljksj ssssssssssss  sddddddddddddddddd'
+      TextSettings.Trimming = None
+      Text = 'Voltar'
       TabOrder = 1
     end
-    object lbl1: TLabel
-      StyledSettings = [Family, Size]
-      Position.X = 9.000000000000000000
-      Position.Y = 119.000000000000000000
-      Size.Width = 233.000000000000000000
-      Size.Height = 20.000000000000000000
+  end
+  object lytTela: TLayout
+    Align = Client
+    Margins.Left = 25.000000000000000000
+    Margins.Top = 25.000000000000000000
+    Margins.Right = 25.000000000000000000
+    Margins.Bottom = 25.000000000000000000
+    Size.Width = 275.000000000000000000
+    Size.Height = 359.000000000000000000
+    Size.PlatformDefault = False
+    TabOrder = 1
+    object recTela: TRectangle
+      Align = Client
+      Fill.Color = claSnow
+      Size.Width = 275.000000000000000000
+      Size.Height = 216.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'Nro. Quiz Jogados:'
-      TabOrder = 11
-      object lblNQuiz: TLabel
-        Align = Right
-        StyledSettings = [Family, Size]
-        Position.X = 168.000000000000000000
-        Size.Width = 65.000000000000000000
+      Stroke.Color = claWhite
+      object lbl1: TLabel
+        StyledSettings = [Family]
+        Position.X = 8.000000000000000000
+        Position.Y = 119.000000000000000000
+        Size.Width = 265.000000000000000000
         Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Nro. Quiz Jogados:'
+        TabOrder = 0
+        object lblNQuiz: TLabel
+          Align = Right
+          StyledSettings = [Family]
+          Position.X = 200.000000000000000000
+          Size.Width = 65.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          Text = '0'
+          TabOrder = 0
+        end
+      end
+      object lbl2: TLabel
+        StyledSettings = [Family]
+        Position.X = 9.000000000000000000
+        Position.Y = 155.000000000000000000
+        Size.Width = 264.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Nota m'#233'dia:'
+        TabOrder = 1
+        object lblTotalPontos: TLabel
+          Align = Right
+          StyledSettings = [Family]
+          Position.X = 199.000000000000000000
+          Size.Width = 65.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          Text = '0'
+          TabOrder = 0
+        end
+      end
+      object lbl3: TLabel
+        StyledSettings = [Family]
+        Position.X = 9.000000000000000000
+        Position.Y = 191.000000000000000000
+        Size.Width = 264.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        Text = 'Respostas certas:'
+        TabOrder = 2
+        object lblTotalGeral: TLabel
+          Align = Right
+          StyledSettings = [Family]
+          Position.X = 199.000000000000000000
+          Size.Width = 65.000000000000000000
+          Size.Height = 20.000000000000000000
+          Size.PlatformDefault = False
+          TextSettings.Font.Size = 18.000000000000000000
+          TextSettings.Font.StyleExt = {00070000000000000004000000}
+          TextSettings.FontColor = claBlue
+          Text = '0'
+          TabOrder = 0
+        end
+      end
+      object lblNome: TLabel
+        Align = Top
+        StyledSettings = [Family]
+        Margins.Top = 10.000000000000000000
+        Position.Y = 33.000000000000000000
+        Size.Width = 275.000000000000000000
+        Size.Height = 64.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 18.000000000000000000
+        TextSettings.Font.StyleExt = {00070000000000000004000000}
+        TextSettings.FontColor = claChartreuse
+        TextSettings.HorzAlign = Center
+        Text = 'akjsdhfklajsdlfjalskjdfaljksj ssssssssssss  sddddddddddddddddd'
+        TabOrder = 3
+      end
+      object lblParabens: TLabel
+        Align = Top
+        StyledSettings = [Family, Size]
+        Size.Width = 275.000000000000000000
+        Size.Height = 23.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.StyleExt = {00070000000000000004000000}
         TextSettings.FontColor = claBlue
-        Text = '0'
-        TabOrder = 0
+        TextSettings.HorzAlign = Center
+        Text = 'Estat'#237'sticas'
+        TabOrder = 4
       end
     end
-    object lbl2: TLabel
-      StyledSettings = [Family, Size]
-      Position.X = 9.000000000000000000
-      Position.Y = 147.000000000000000000
-      Size.Width = 233.000000000000000000
-      Size.Height = 20.000000000000000000
+    object btnGerarPerguntas: TButton
+      Align = Bottom
+      StyledSettings = [Family, Style, FontColor]
+      Position.Y = 216.000000000000000000
+      Size.Width = 275.000000000000000000
+      Size.Height = 143.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'Nota m'#233'dia:'
-      TabOrder = 12
-      object lblTotalPontos: TLabel
-        Align = Right
-        StyledSettings = [Family, Size]
-        Position.X = 168.000000000000000000
-        Size.Width = 65.000000000000000000
-        Size.Height = 20.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBlue
-        Text = '0'
-        TabOrder = 0
-      end
-    end
-    object lbl3: TLabel
-      StyledSettings = [Family, Size]
-      Position.X = 9.000000000000000000
-      Position.Y = 175.000000000000000000
-      Size.Width = 233.000000000000000000
-      Size.Height = 20.000000000000000000
-      Size.PlatformDefault = False
-      TextSettings.Font.StyleExt = {00070000000000000004000000}
-      Text = 'Respostas certas:'
-      TabOrder = 10
-      object lblTotalGeral: TLabel
-        Align = Right
-        StyledSettings = [Family, Size]
-        Position.X = 168.000000000000000000
-        Size.Width = 65.000000000000000000
-        Size.Height = 20.000000000000000000
-        Size.PlatformDefault = False
-        TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claBlue
-        Text = '0'
-        TabOrder = 0
-      end
+      TabOrder = 8
+      Text = 'Gerar perguntas'
+      TextSettings.Font.Size = 45.000000000000000000
+      TextSettings.WordWrap = True
+      OnClick = btnGerarPerguntasClick
     end
   end
 end

@@ -23,6 +23,7 @@ type
     lblNQuiz: TLabel;
     lblTotalGeral: TLabel;
     lblTotalPontos: TLabel;
+    lblTitulo: TLabel;
     procedure FormShow(Sender: TObject);
     procedure btnVoltarClick(Sender: TObject);
     procedure btnGerarPerguntasClick(Sender: TObject);
