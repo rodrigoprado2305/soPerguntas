@@ -32,7 +32,7 @@ object FormGerarQuiz: TFormGerarQuiz
       Size.Width = 285.000000000000000000
       Size.Height = 40.000000000000000000
       Size.PlatformDefault = False
-      TextSettings.Font.Size = 20.000000000000000000
+      TextSettings.Font.Size = 30.000000000000000000
       TextSettings.Font.StyleExt = {00070000000000000004000000}
       TextSettings.HorzAlign = Center
       TextSettings.Trimming = None

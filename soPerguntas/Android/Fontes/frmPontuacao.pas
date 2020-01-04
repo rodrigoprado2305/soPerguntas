@@ -91,7 +91,7 @@ begin
 
   IntentWhatsApp := TJIntent.JavaClass.init(TJIntent.JavaClass.ACTION_SEND);
   IntentWhatsApp.setType(StringToJString('text/plain'));
-  IntentWhatsApp.putExtra(TJIntent.JavaClass .EXTRA_TEXT,StringToJString(sMensagem));
+  IntentWhatsApp.putExtra(TJIntent.JavaClass.EXTRA_TEXT,StringToJString(sMensagem));
 
   IntentWhatsApp.setType(StringToJString('image/jpg'));
   IntentWhatsApp.putParcelableArrayListExtra(TJIntent.JavaClass.EXTRA_STREAM,lst);
@@ -99,7 +99,6 @@ begin
 
   //SharedActivity.startActivity(IntentWhatsApp); // is deprecated
   TAndroidHelper.Activity.startActivity(IntentWhatsApp);
-  close;
 end;
 
 procedure TFormPontuacao.btnNovoQuizClick(Sender: TObject);
