@@ -462,16 +462,16 @@
         <Cfg_2_Android>true</Cfg_2_Android>
         <CfgParent>Cfg_2</CfgParent>
         <Cfg_2>true</Cfg_2>
-        <VerInfo_Build>2</VerInfo_Build>
+        <VerInfo_Build>3</VerInfo_Build>
         <DCC_DcuOutput>D:\Desenvolvimento\Delphi\trunk\Projeto Educando\dcu</DCC_DcuOutput>
         <PF_KeyStore>keystore\keysoperguntas.keystore</PF_KeyStore>
-        <PF_KeyStorePass>851D47C6645855D8A342711DD129E36881D0051BA043979397B40FAB8E363C94DB04A3D7E3401C39C1CC5752FACFC338BAF83613042722C3164B45C2E5BA22DBC90AF35DEE8DA890D38B3B46727085CCF7893354</PF_KeyStorePass>
+        <PF_KeyStorePass>54E50DFE644355A9A301713BD13FE36081DA0549A057979297EE0FB48E3E3CD9DB5DA38CE3371C4DC1B0577DFADEC37ABAF93641045722CE16654589E5A6228C18F0B93AEE8DA890D38B3B46727085CCF7893354</PF_KeyStorePass>
         <PF_AliasKey>keysoperguntas</PF_AliasKey>
-        <PF_AliasKeyPass>851D47C65F9307DBCF28E564A4017BF4E4140519A05A97D897C80FA28E363C94DB04A390E34B1C31C1B15774FAD1C339BABA3609043F22FC1657458CE5A722CFC949F31FD555FAFEBFE4AF0D07551D5892013354</PF_AliasKeyPass>
+        <PF_AliasKeyPass>851D47C65F9307DBCF28E564D171E33F81850535A05F97C997AA0FF88E783C8ADB56A385E3111C2FC1E2577DFAC4C363BA95367E043722D3163A459DE5E4229DC938F341D558FA9BBFF8AF11727085CCF7893354</PF_AliasKeyPass>
         <EL_AdMob>true</EL_AdMob>
-        <VerInfo_Keys>package=com.embarcadero.soPerguntas;label=$(MSBuildProjectName);versionCode=2;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
-        <BT_BuildType>AppStore</BT_BuildType>
+        <VerInfo_Keys>package=com.embarcadero.soPerguntas;label=$(MSBuildProjectName);versionCode=3;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
         <DCC_GenerateAndroidAppBundleFile>true</DCC_GenerateAndroidAppBundleFile>
+        <BT_BuildType>AppStore</BT_BuildType>
     </PropertyGroup>
     <PropertyGroup Condition="'$(Cfg_2_Win32)'!=''">
         <AppEnableRuntimeThemes>true</AppEnableRuntimeThemes>

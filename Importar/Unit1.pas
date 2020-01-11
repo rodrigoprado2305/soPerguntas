@@ -122,7 +122,6 @@ begin
   iMaiorAss := 0;
   iMaiorAss2 := 0;
 
-
   mtExcel.DisableControls;
 
   for i := 1 to StringGrid1.RowCount -1 do
@@ -140,14 +139,13 @@ begin
     if iMaiorFra > iMaiorFra2 then
        iMaiorFra2 := iMaiorFra;
 
-
     mtExcel.AppendRecord([
       iAssuntoID,
       StringGrid1.Cells[0,i],
       i,
-      StringGrid1.Cells[1,i],
-      StringGrid1.Cells[2,i]
-           ]);
+      AnsiUpperCase( StringGrid1.Cells[1,i] ),
+      AnsiUpperCase( StringGrid1.Cells[2,i] )
+      ]);
       Gauge1.Progress := Gauge1.Progress + 1;
 
     application.ProcessMessages;

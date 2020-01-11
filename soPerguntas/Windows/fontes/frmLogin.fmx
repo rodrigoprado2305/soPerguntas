@@ -11,6 +11,7 @@ object FormLogin: TFormLogin
   FormFactor.Height = 480
   FormFactor.Devices = [Desktop]
   OnCreate = FormCreate
+  OnShow = FormShow
   DesignerMasterStyle = 0
   object Image1: TImage
     MultiResBitmap = <
@@ -691,7 +692,7 @@ object FormLogin: TFormLogin
     Size.Width = 320.000000000000000000
     Size.Height = 24.000000000000000000
     Size.PlatformDefault = False
-    Text = '  Vers'#227'o 1.0'
+    Text = '  Vers'#227'o 1.1'
     TabOrder = 4
   end
 end

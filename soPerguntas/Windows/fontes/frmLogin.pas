@@ -20,6 +20,7 @@ type
     procedure FormCreate(Sender: TObject);
     procedure edtSenhaKeyDown(Sender: TObject; var Key: Word; var KeyChar: Char;
       Shift: TShiftState);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -73,6 +74,11 @@ begin
   dm.qryAssunto.Open('select assuntoid, descricao from assunto');
 
   Caption := DescriptografarSenha(DM.qryChave.FieldByName('nomeEscola').AsString,23);
+end;
+
+procedure TFormLogin.FormShow(Sender: TObject);
+begin
+  edtSenha.SetFocus;
 end;
 
 end.
