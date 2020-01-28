@@ -97,7 +97,7 @@ begin
 
   lblStatus.Text := '[BD] '+fnCaminhoBD;
   //Caption := '  Gestão PE Versão ' + getVersaoExe(Application.ExeName);
-  Caption := '  Chave do cliente 1.1 - 31/12/2019 11:28';
+  Caption := '  Chave do cliente versão 1.2 - 27/01/2020 22:26';
 
 end;
 

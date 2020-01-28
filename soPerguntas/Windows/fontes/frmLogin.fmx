@@ -692,7 +692,7 @@ object FormLogin: TFormLogin
     Size.Width = 320.000000000000000000
     Size.Height = 24.000000000000000000
     Size.PlatformDefault = False
-    Text = '  Vers'#227'o 1.1'
+    Text = '  Vers'#227'o 1.2'
     TabOrder = 4
   end
 end

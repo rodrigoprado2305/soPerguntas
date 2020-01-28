@@ -143,8 +143,8 @@ begin
       iAssuntoID,
       StringGrid1.Cells[0,i],
       i,
-      AnsiUpperCase( StringGrid1.Cells[1,i] ),
-      AnsiUpperCase( StringGrid1.Cells[2,i] )
+       StringGrid1.Cells[1,i] ,
+       StringGrid1.Cells[2,i]
       ]);
       Gauge1.Progress := Gauge1.Progress + 1;
 
@@ -159,7 +159,7 @@ procedure TForm1.Button2Click(Sender: TObject);
 var s: string;
 begin
                                                                                                               //SOPERGUNTAS_TESTE_SETEMBRO.xlsx
-  s := 'D:\Desenvolvimento\Delphi\trunk\Projeto Educando\soPerguntas\Importar\FINAL_SOPERGUNTAS_2020.xlsx';   //FINAL_SOPERGUNTAS_2020.xlsx';
+  s := 'D:\Desenvolvimento\Delphi\trunk\Projeto Educando\soPerguntas\Importar\soperguntas_2020_FINAL.xlsx';   //FINAL_SOPERGUNTAS_2020.xlsx';
   XlsToStringGrid(stringgrid1,s);
 
   showmessage('excel para o STRINGGRID CONCLUÍDO');
