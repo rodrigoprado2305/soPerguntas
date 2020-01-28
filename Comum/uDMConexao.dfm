@@ -10,6 +10,7 @@ object DM: TDM
         'untas\soPerguntas\BD\perguntas.sdb'
       'LockingMode=Normal'
       'Encrypt=aes-128'
+      'OpenMode=ReadWrite'
       'DriverID=SQLite')
     LoginPrompt = False
     Left = 56
