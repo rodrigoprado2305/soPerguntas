@@ -31,6 +31,7 @@ type
     procedure filtraPergunta(iAssuntoID: Integer; iPerguntaID: Integer = 0);
     procedure atualizarEstatisticas(dMedia: double);
     procedure carregarEstatisticas;
+    function getVersaoBD: String;
   end;
 
 var
@@ -122,6 +123,14 @@ begin
   qryTemp.ParamByName('media').AsFloat := dMedia;
   qryTemp.ParamByName('mediageral').AsFloat := dMedia;
   qryTemp.ExecSQL;
+end;
+
+function TDM.getVersaoBD: String;
+begin
+  qryTemp.Close;
+  qryTemp.SQL.Text := ' select descricao from versaobd ';
+  qryTemp.Open;
+  result := qryTemp.Fields[0].AsString;
 end;
 
 procedure TDM.setEstatisticasAtualizar(dMedia: double);

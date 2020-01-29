@@ -4,8 +4,8 @@
         <ProjectFileVersion>12</ProjectFileVersion>
     </ProjectExtensions>
     <PropertyGroup>
-        <DeviceId Condition="'$(Platform)'=='Android'"/>
-        <DeviceId Condition="'$(Platform)'=='Android64'"/>
+        <DeviceId Condition="'$(Platform)'=='Android'">0060853145</DeviceId>
+        <DeviceId Condition="'$(Platform)'=='Android64'">0060853145</DeviceId>
         <DeviceId Condition="'$(Platform)'=='iOSDevice32'"/>
         <DeviceId Condition="'$(Platform)'=='iOSDevice64'"/>
         <DeviceId Condition="'$(Platform)'=='iOSSimulator'">iPhone5</DeviceId>
@@ -318,15 +318,6 @@
             <RemoteCommand/>
             <Overwrite>True</Overwrite>
         </DeployFile>
-        <DeployFile Include="..\BD\perguntas.sdb" Condition="'$(Config)'=='Release'">
-            <RemoteDir>soPerguntas\assets\internal\</RemoteDir>
-            <RemoteName>perguntas.sdb</RemoteName>
-            <DeployClass>File</DeployClass>
-            <Operation>0</Operation>
-            <LocalCommand/>
-            <RemoteCommand/>
-            <Overwrite>True</Overwrite>
-        </DeployFile>
         <DeployFile Include="..\..\..\..\..\..\Icones_Pngs_Bmps_Gifs\soPerguntas\470x320.fw.png" Condition="'$(Config)'=='Release'">
             <RemoteDir>soPerguntas\res\drawable-normal\</RemoteDir>
             <RemoteName>splash_image.png</RemoteName>
@@ -350,6 +341,15 @@
             <RemoteName>strings.xml</RemoteName>
             <DeployClass>Android_Strings</DeployClass>
             <Operation>1</Operation>
+            <LocalCommand/>
+            <RemoteCommand/>
+            <Overwrite>True</Overwrite>
+        </DeployFile>
+        <DeployFile Include="..\BD\perguntas.sdb" Condition="'$(Config)'=='Release'">
+            <RemoteDir>soPerguntas\assets\internal\</RemoteDir>
+            <RemoteName>perguntas.sdb</RemoteName>
+            <DeployClass>File</DeployClass>
+            <Operation>0</Operation>
             <LocalCommand/>
             <RemoteCommand/>
             <Overwrite>True</Overwrite>

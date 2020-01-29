@@ -18,11 +18,13 @@ type
     lvAssunto: TListView;
     Layout1: TLayout;
     Layout2: TLayout;
-    Image2: TImage;
+    imgArrow: TImage;
+    lblVersaoBD: TLabel;
     procedure FormShow(Sender: TObject);
     procedure lvAssuntoItemClick(const Sender: TObject;
       const AItem: TListViewItem);
     procedure btnVoltarClick(Sender: TObject);
+    procedure imgArrowClick(Sender: TObject);
   private
     { Private declarations }
   public
@@ -42,6 +44,7 @@ uses uDMConexao, frmQuiz, frmGerarQuiz;
 procedure TFormAssuntos.btnVoltarClick(Sender: TObject);
 begin
   close;
+  lblVersaoBD.Visible := False;
 end;
 
 procedure TFormAssuntos.carregarListas;
@@ -78,12 +81,19 @@ end;
 procedure TFormAssuntos.FormShow(Sender: TObject);
 begin
   carregarListas;
+  lblVersaoBD.Visible := False;
+  lblVersaoBD.Text := DM.getVersaoBD;
+end;
+
+procedure TFormAssuntos.imgArrowClick(Sender: TObject);
+begin
+  lblVersaoBD.Visible := True;
 end;
 
 procedure TFormAssuntos.lvAssuntoItemClick(const Sender: TObject;
   const AItem: TListViewItem);
 begin
-  DM.piAssuntoID := AItem.Tag;//(AItem.Detail);
+  DM.piAssuntoID := AItem.Tag; //(AItem.Detail);
   DM.psTema := AItem.Text;
   DM.FiltraPergunta(DM.piAssuntoID);
   formgerarquiz.show;

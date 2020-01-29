@@ -24,6 +24,13 @@ nomeEscola varchar(255),
 senha varchar(100)
 );
 
+create table versaobd(
+  versaobdid integer constraint pk_versaobdid primary key AUTOINCREMENT,
+  descricao char(5)
+)
+insert into versaobd(descricao) values  ('1.0.5');
+select * from versaobd
+
 drop table estatisticas
 
 create table estatisticas(
