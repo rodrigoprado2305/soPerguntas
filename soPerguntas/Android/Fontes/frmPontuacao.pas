@@ -105,6 +105,7 @@ procedure TFormPontuacao.btnNovoQuizClick(Sender: TObject);
 begin
   close;
   FormAssuntos.carregarListas;
+  formAssuntos.show;
 end;
 
 procedure TFormPontuacao.FormShow(Sender: TObject);
