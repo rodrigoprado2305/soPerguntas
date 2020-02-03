@@ -98,3 +98,8 @@ soPerguntas/Android/Android/Release/soPerguntas/assets/internal/ok.mp3
 soPerguntas/Android/Android64/
 Importar/Win32/Debug/Dados/perguntas.sdb
 editorSoPerguntas/Win32/Release/Dados/perguntas.sdb
+soPerguntas/Windows/Win32/Debug/Dados/perguntas.sdb
+soPerguntas/Windows/Win32/Debug/Dados/perguntas.sdb-journal
+soPerguntas/Android/Android/Release/soPerguntas/assets/internal/dadosAssuntos.sql
+soPerguntas/Android/Android/Release/soPerguntas/assets/internal/dadosPerguntas.sql
+soPerguntas/Android/deployedassets.txt

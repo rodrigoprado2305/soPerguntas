@@ -24,6 +24,7 @@ type
     lblTotalGeral: TLabel;
     lblTotalPontos: TLabel;
     lblTitulo: TLabel;
+    lblTema: TLabel;
     procedure FormShow(Sender: TObject);
     procedure btnVoltarClick(Sender: TObject);
     procedure btnGerarPerguntasClick(Sender: TObject);
@@ -59,6 +60,7 @@ procedure TFormGerarQuiz.FormShow(Sender: TObject);
 begin
   DM.carregarEstatisticas;
 
+  lblTema.Text := 'Tema: '+DM.psTema;
   lblNome.Text := DM.psNome;
   lblNQuiz.Text := DM.qryTemp.FieldByName('numjogadas').AsString;
   if lblNQuiz.Text = '' then

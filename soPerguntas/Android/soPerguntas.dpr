@@ -14,7 +14,8 @@ uses
   uBiblioteca in '..\..\Comum\uBiblioteca.pas',
   frmGerarQuiz in 'Fontes\frmGerarQuiz.pas' {FormGerarQuiz},
   frmPontuacao in 'Fontes\frmPontuacao.pas' {FormPontuacao},
-  frmInformacao in 'Fontes\frmInformacao.pas' {FormInformacao};
+  frmInformacao in 'Fontes\frmInformacao.pas' {FormInformacao},
+  uConst in '..\..\Comum\uConst.pas';
 
 {$R *.res}
 

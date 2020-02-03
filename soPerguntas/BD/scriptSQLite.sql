@@ -65,10 +65,16 @@ update estatisticas set mediageral = (mediageral + 9), numjogadas = (numjogadas 
 delete from perguntas;
 delete from assunto;
 
+select count(*) from perguntas
+
+delete from estatisticas;
+delete from perguntas;
+
 update assunto set descricao = 'Adicionando: 0'+TimeToStr(Time) +' where assuntoid = 1
 
-select * from assunto;
+select COUNT(*) from assunto;
 select COUNT(*) from perguntas;
+delete from perguntas
 
 select length(descricao),* from perguntas where perguntaid >= 1000
 

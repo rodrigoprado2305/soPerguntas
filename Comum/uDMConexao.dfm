@@ -45,4 +45,27 @@ object DM: TDM
     Left = 280
     Top = 73
   end
+  object FDScript: TFDScript
+    SQLScripts = <
+      item
+        SQL.Strings = (
+          'create table versaobd('
+          
+            '  versaobdid integer constraint pk_versaobdid primary key AUTOIN' +
+            'CREMENT,'
+          '  descricao char(5));'
+          'insert into versaobd(descricao) values  ('#39'1.0.5'#39');')
+      end>
+    Connection = BD
+    Params = <>
+    Macros = <>
+    FetchOptions.AssignedValues = [evItems, evAutoClose, evAutoFetchAll]
+    FetchOptions.AutoClose = False
+    FetchOptions.Items = [fiBlobs, fiDetails]
+    ResourceOptions.AssignedValues = [rvMacroCreate, rvMacroExpand, rvDirectExecute, rvPersistent]
+    ResourceOptions.MacroCreate = False
+    ResourceOptions.DirectExecute = True
+    Left = 184
+    Top = 128
+  end
 end

@@ -95,7 +95,9 @@ procedure TFormAssuntos.lvAssuntoItemClick(const Sender: TObject;
 begin
   DM.piAssuntoID := AItem.Tag; //(AItem.Detail);
   DM.psTema := AItem.Text;
+    //showmessage('Assunto: '+inttostr(DM.piAssuntoID));
   DM.FiltraPergunta(DM.piAssuntoID);
+    //showmessage('Qtd Perguntas: '+inttostr(DM.qryPerguntas.RecordCount));
   formgerarquiz.show;
 end;
 

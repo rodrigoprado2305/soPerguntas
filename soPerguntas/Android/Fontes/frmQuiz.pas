@@ -60,7 +60,7 @@ const
 
 implementation
 
-uses uDMConexao, System.Math, frmPontuacao, frmInformacao, Data.DB;
+uses uDMConexao, System.Math, frmPontuacao, frmInformacao, Data.DB, uConst;
 
 {$R *.fmx}
 
@@ -208,7 +208,7 @@ end;
 
 procedure TFormQuiz.FormCreate(Sender: TObject);
 begin
-  BannerAd1.AdUnitID := 'ca-app-pub-9350000386173480/6321598059';
+  BannerAd1.AdUnitID := ID_ANUNCIO;
   bMusica := True;
 end;
 
@@ -235,7 +235,7 @@ procedure TFormQuiz.gerarQuiz;
 begin
   if DM.qryPerguntas.IsEmpty then
   begin
-    showmessage('Selecione um assunto');
+    showmessage('Erro ao carregar as perguntas do assunto: '+DM.psTema);
     exit;
   end;
 
@@ -337,7 +337,7 @@ begin
     begin
       ResStream := TResourceStream.Create(HInstance, sArqNome, RT_RCDATA);
       try
-        sFile := TPath.Combine(System.IOUtils.TPath.GetDownloadsPath, 'ok.mp3');
+        sFile := TPath.Combine(System.IOUtils.TPath.GetDownloadsPath, OK_MP3);
         ResStream.Position := 0;
         ResStream.SaveToFile(sFile);
         MediaPlayer1.FileName := sFile;
@@ -350,7 +350,7 @@ begin
     begin
       ResStream := TResourceStream.Create(HInstance, sArqNome, RT_RCDATA);
       try
-        sFile := TPath.Combine(System.IOUtils.TPath.GetDownloadsPath, 'erro.mp3');
+        sFile := TPath.Combine(System.IOUtils.TPath.GetDownloadsPath, ERRO_MP3);
         ResStream.Position := 0;
         ResStream.SaveToFile(sFile);
         MediaPlayer1.FileName := sFile;

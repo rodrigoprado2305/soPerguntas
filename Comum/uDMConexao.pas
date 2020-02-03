@@ -8,7 +8,8 @@ uses
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.SQLite,
   FireDAC.Phys.SQLiteDef, FireDAC.Stan.ExprFuncs, FireDAC.Stan.Param,
   FireDAC.DatS, FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.FMXUI.Wait,
-  FireDAC.Comp.UI, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client;
+  FireDAC.Comp.UI, Data.DB, FireDAC.Comp.DataSet, FireDAC.Comp.Client,
+  FireDAC.Comp.ScriptCommands, FireDAC.Stan.Util, FireDAC.Comp.Script;
 
 type
   TDM = class(TDataModule)
@@ -19,6 +20,7 @@ type
     qryPerguntas: TFDQuery;
     qryChave: TFDQuery;
     qryTemp: TFDQuery;
+    FDScript: TFDScript;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
@@ -39,17 +41,22 @@ var
 
 implementation
 
-uses uBiblioteca;
+uses uBiblioteca, uConst;
 
 {%CLASSGROUP 'FMX.Controls.TControl'}
 
 {$R *.dfm}
 
 procedure TDM.DataModuleCreate(Sender: TObject);
+//var
+  //sAux: String;
 begin
   BD.Params.Clear;
   BD.Params.Values['DriverID'] := 'SQLite';
   BD.Params.Add('Database='+fnCaminhoBD);
+
+  if BD.Connected then
+    BD.Connected := False;
 
   try
     BD.Connected := True;
@@ -57,6 +64,33 @@ begin
     on E:Exception do
       raise Exception.Create('Erro de conexão com o banco de dados: ' + E.Message);
   end;
+
+  //Atualizar banco
+  {try
+    sAux := getVersaoBD;  // deixei o script iniciado do banco armazenado internamente
+  except
+    FDScript.ExecuteAll;
+  end;
+
+  if sAux <> VERSAO_BD then
+  begin
+    FDScript.SQLScripts.Clear;
+    FDScript.SQLScriptFileName := '';
+    FDScript.SQLScriptFileName := fnCaminhoScript(SQL_ASSUNTOS);
+    FDScript.ExecuteAll;
+
+    // para o arquivo com 10 mil perguntas é muito grande e não roda o comando, o certo seria diminuir
+    FDScript.SQLScripts.Clear;
+    FDScript.SQLScriptFileName := '';
+    FDScript.SQLScriptFileName := fnCaminhoScript(SQL_PERGUNTAS);
+    FDScript.ExecuteAll;
+
+    qryTemp.Close;
+    qryTemp.SQL.Text :=
+      ' update versaobd set descricao =:descricao ';
+    qryTemp.ParamByName('descricao').AsString := VERSAO_BD;
+    qryTemp.ExecSQL;
+  end;    }
 
   DM.qryChave.Close;
   DM.qryChave.Open('select chaveid, nomeEscola, senha from chave');

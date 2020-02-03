@@ -54,7 +54,7 @@ object FormGerarQuiz: TFormGerarQuiz
       Align = Client
       Fill.Color = claSnow
       Size.Width = 275.000000000000000000
-      Size.Height = 216.000000000000000000
+      Size.Height = 232.000000000000000000
       Size.PlatformDefault = False
       Stroke.Color = claWhite
       object lbl1: TLabel
@@ -136,13 +136,13 @@ object FormGerarQuiz: TFormGerarQuiz
         Align = Top
         StyledSettings = [Family]
         Margins.Top = 10.000000000000000000
-        Position.Y = 33.000000000000000000
+        Position.Y = 55.000000000000000000
         Size.Width = 275.000000000000000000
         Size.Height = 64.000000000000000000
         Size.PlatformDefault = False
         TextSettings.Font.Size = 18.000000000000000000
         TextSettings.Font.StyleExt = {00070000000000000004000000}
-        TextSettings.FontColor = claChartreuse
+        TextSettings.FontColor = claCoral
         TextSettings.HorzAlign = Center
         Text = 'akjsdhfklajsdlfjalskjdfaljksj ssssssssssss  sddddddddddddddddd'
         TabOrder = 3
@@ -159,15 +159,31 @@ object FormGerarQuiz: TFormGerarQuiz
         Text = 'Estat'#237'sticas'
         TabOrder = 4
       end
+      object lblTema: TLabel
+        Align = Top
+        StyledSettings = [Family, Style]
+        Margins.Top = 2.000000000000000000
+        Position.Y = 25.000000000000000000
+        Size.Width = 275.000000000000000000
+        Size.Height = 20.000000000000000000
+        Size.PlatformDefault = False
+        TextSettings.Font.Size = 14.000000000000000000
+        TextSettings.FontColor = claYellowgreen
+        TextSettings.HorzAlign = Center
+        Text = 'Tema'
+        ParentShowHint = False
+        ShowHint = False
+        TabOrder = 5
+      end
     end
     object btnGerarPerguntas: TButton
       Align = Bottom
       StyledSettings = [Family, Style, FontColor]
-      Position.Y = 216.000000000000000000
+      Position.Y = 232.000000000000000000
       Size.Width = 275.000000000000000000
-      Size.Height = 143.000000000000000000
+      Size.Height = 127.000000000000000000
       Size.PlatformDefault = False
-      TabOrder = 8
+      TabOrder = 7
       Text = 'Gerar perguntas'
       TextSettings.Font.Size = 45.000000000000000000
       TextSettings.WordWrap = True
