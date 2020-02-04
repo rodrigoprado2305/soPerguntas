@@ -463,14 +463,14 @@
         <Cfg_2_Android>true</Cfg_2_Android>
         <CfgParent>Cfg_2</CfgParent>
         <Cfg_2>true</Cfg_2>
-        <VerInfo_Build>5</VerInfo_Build>
+        <VerInfo_Build>6</VerInfo_Build>
         <DCC_DcuOutput>D:\Desenvolvimento\Delphi\trunk\Projeto Educando\dcu</DCC_DcuOutput>
         <PF_KeyStore>keystore\keysoperguntas.keystore</PF_KeyStore>
-        <PF_KeyStorePass>851D47C65F9307DBCF28E564D171E33F81850535A05F97C997AA0FF88E783C8ADB56A385E3111C2FC1E2577DFAC4C363BA95367E043722D3163A459DE5E4229DC938F341D558FA9BBFF8AF11727085CCF7893354</PF_KeyStorePass>
+        <PF_KeyStorePass>851D47C65F9307DBA359716CD16AE34E81C60513A04997C197A00FAA8E6C3C8BDB0CA39AE3191C62C1BB5726FAB3C317BAE9365104262291163B45CFE5942290C916F30AD544FACCD38B3B46727085CCF7893354</PF_KeyStorePass>
         <PF_AliasKey>keysoperguntas</PF_AliasKey>
-        <PF_AliasKeyPass>851D47C65F9307DBCF28E564A401E36281C30502A02B979B97EE0FB48E3E3C9EDB56A384E34A1C6BC1AE577CFA9CC360BAE1367E044B22801678459DE5E522CEC91BF36FD558FAD0BFAFAF11070285CCF7893354</PF_AliasKeyPass>
+        <PF_AliasKeyPass>851D47C65F935585A304712AD15DE33A81940557A005978797B40FAA8E6D3CD0DB48A3D6E3181C3AC1B85752FAB3C36BBABA361304262290166845ECE5BA2290C95DF35DD544A890D38B3B46727085CCF7893354</PF_AliasKeyPass>
         <EL_AdMob>true</EL_AdMob>
-        <VerInfo_Keys>package=com.embarcadero.soPerguntas;label=$(MSBuildProjectName);versionCode=5;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
+        <VerInfo_Keys>package=com.embarcadero.soPerguntas;label=$(MSBuildProjectName);versionCode=6;versionName=1.0.0;persistent=False;restoreAnyVersion=False;installLocation=auto;largeHeap=False;theme=TitleBar;hardwareAccelerated=true;apiKey=</VerInfo_Keys>
         <DCC_GenerateAndroidAppBundleFile>true</DCC_GenerateAndroidAppBundleFile>
         <BT_BuildType>AppStore</BT_BuildType>
     </PropertyGroup>

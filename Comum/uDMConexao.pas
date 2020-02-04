@@ -34,6 +34,8 @@ type
     procedure atualizarEstatisticas(dMedia: double);
     procedure carregarEstatisticas;
     function getVersaoBD: String;
+    procedure setLogin(sNome: String);
+    function getLogin: String;
   end;
 
 var
@@ -92,8 +94,15 @@ begin
     qryTemp.ExecSQL;
   end;    }
 
-  DM.qryChave.Close;
-  DM.qryChave.Open('select chaveid, nomeEscola, senha from chave');
+  qryChave.Close;
+  try
+    qryChave.Open('select chaveid, nomeEscola, senha from chave');
+  except
+    on E:Exception do
+      raise Exception.Create('Erro ao carregar o chave: ' + E.Message);
+  end;
+
+  psNome := getLogin;
 
  {
   qryRespostas.Params[1].DataType := TFieldType.ftInteger;
@@ -135,7 +144,12 @@ begin
   qryTemp.SQL.Text :=
     ' select numjogadas, media, mediageral from estatisticas where assuntoid =:assuntoid';
   qryTemp.ParamByName('assuntoid').AsInteger := piAssuntoID;
-  qryTemp.Open;
+  try
+    qryTemp.Open;
+  except
+    on E:Exception do
+      raise Exception.Create('Erro ao carregar as estatísticas: ' + E.Message);
+  end;
 end;
 
 procedure TDM.atualizarEstatisticas(dMedia: double);
@@ -156,14 +170,23 @@ begin
   qryTemp.ParamByName('assuntoid').AsInteger := piAssuntoID;
   qryTemp.ParamByName('media').AsFloat := dMedia;
   qryTemp.ParamByName('mediageral').AsFloat := dMedia;
-  qryTemp.ExecSQL;
+  try
+     qryTemp.ExecSQL;
+  except
+    on E:Exception do
+      raise Exception.Create('Erro ao inserir as estatísticas: ' + E.Message);
+  end;
 end;
 
 function TDM.getVersaoBD: String;
 begin
   qryTemp.Close;
-  qryTemp.SQL.Text := ' select descricao from versaobd ';
-  qryTemp.Open;
+  try
+    qryTemp.Open('select descricao from versaobd');
+  except
+    on E:Exception do
+      raise Exception.Create('Erro ao carregar o versão do BD: ' + E.Message);
+  end;
   result := qryTemp.Fields[0].AsString;
 end;
 
@@ -184,7 +207,38 @@ begin
   qryTemp.ParamByName('media').AsFloat := dMediaGeral/iNumJogadas;
   qryTemp.ParamByName('numjogadas').AsInteger := iNumJogadas;
   qryTemp.ParamByName('assuntoid').AsInteger := piAssuntoID;
-  qryTemp.ExecSQL;
+  try
+     qryTemp.ExecSQL;
+  except
+    on E:Exception do
+      raise Exception.Create('Erro ao atualizar a média geral: ' + E.Message);
+  end;
+end;
+
+procedure TDM.setLogin(sNome: String);
+begin
+  qryTemp.Close;
+  qryTemp.SQL.Text :=
+    ' update login set descricao =:descricao ';
+  qryTemp.ParamByName('descricao').AsString := sNome;
+  try
+     qryTemp.ExecSQL;
+  except
+    on E:Exception do
+      raise Exception.Create('Erro ao atualizar o login: ' + E.Message);
+  end;
+end;
+
+function TDM.getLogin: String;
+begin
+  qryTemp.Close;
+  try
+    qryTemp.Open('select descricao from login');
+  except
+    on E:Exception do
+      raise Exception.Create('Erro ao carregar o login: ' + E.Message);
+  end;
+  result := qryTemp.Fields[0].AsString;
 end;
 
 end.

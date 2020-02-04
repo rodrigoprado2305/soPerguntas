@@ -31,6 +31,15 @@ create table versaobd(
 insert into versaobd(descricao) values  ('1.0.5');
 select * from versaobd
 
+create table login(
+  loginid integer constraint pk_loginid primary key AUTOINCREMENT,
+  descricao varchar(32)
+)
+insert into login(descricao) values  ('');
+select * from login
+rodrigo alves de campos do prado
+
+
 drop table estatisticas
 
 create table estatisticas(

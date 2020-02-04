@@ -24,6 +24,7 @@ type
     lytEspaco: TLayout;
     StyleBook1: TStyleBook;
     procedure btnAcessarClick(Sender: TObject);
+    procedure FormShow(Sender: TObject);
   private
     { Private declarations }
   public
@@ -47,8 +48,16 @@ begin
     exit;
   end;
 
+  if edtNome.Text <> DM.psNome then
+    DM.setLogin(Trim(edtNome.Text));
+
   DM.psNome := Trim(edtNome.Text);
   formAssuntos.show;
+end;
+
+procedure TFormEntrada.FormShow(Sender: TObject);
+begin
+  edtNome.Text := DM.psNome;
 end;
 
 end.
