@@ -1017,7 +1017,8 @@ object FormEntrada: TFormEntrada
         Align = Top
         TabOrder = 0
         MaxLength = 32
-        TextSettings.Font.Size = 14.000000000000000000
+        Text = 'Rodrigo Alves de Campos do Prado'
+        TextSettings.Font.Size = 13.000000000000000000
         Position.X = 27.000000000000000000
         Position.Y = 75.000000000000000000
         Margins.Left = 27.000000000000000000
