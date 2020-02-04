@@ -26,6 +26,7 @@ type
     { Private declarations }
     procedure setEstatisticasInserir(dMedia: double);
     procedure setEstatisticasAtualizar(dMedia: double);
+    function getLogin: String;
   public
     { Public declarations }
     piTotalPerguntas, piAssuntoID, piMin, piMax: Integer;
@@ -35,7 +36,6 @@ type
     procedure carregarEstatisticas;
     function getVersaoBD: String;
     procedure setLogin(sNome: String);
-    function getLogin: String;
   end;
 
 var
