@@ -50,6 +50,7 @@ end;
 procedure TFormAssuntos.carregarListas;
 var
   liItem: TListViewItem;
+  dCalculo: Double;
 begin
   if not DM.BD.Connected then
     DM.BD.Connected := True;
@@ -58,7 +59,7 @@ begin
   //dm.qryAssunto.Open('select assuntoid, descricao from assunto');
   dm.qryAssunto.SQL.Text :=
     'select ' +
-    '  a.assuntoid, a.descricao, e.media ' +
+    '  a.assuntoid, a.descricao, e.media, e.mediageral, e.numjogadas ' +
     'from ' +
     '  assunto a ' +
     '  left join estatisticas as e on (e.assuntoid = a.assuntoid) ';
@@ -68,8 +69,14 @@ begin
   lvAssunto.BeginUpdate;
   while not DM.qryAssunto.Eof do
   begin
+
+    if DM.qryAssunto.FieldByName('numjogadas').AsInteger >= 1 then
+      dCalculo := DM.qryAssunto.FieldByName('mediageral').AsFloat/DM.qryAssunto.FieldByName('numjogadas').AsInteger
+    else
+      dCalculo := 0;
+
     liItem := lvAssunto.Items.Add;
-    liItem.Detail := 'Nota média: ' + FormatFloat('0.00', DM.qryAssunto.FieldByName('media').AsFloat); //DM.qryAssunto.FieldByName('assuntoid').AsString;
+    liItem.Detail := 'Nota média: ' + FormatFloat('0.00', dCalculo); //FormatFloat('0.00', DM.qryAssunto.FieldByName('media').AsFloat); //DM.qryAssunto.FieldByName('assuntoid').AsString;
     liItem.Text := DM.qryAssunto.FieldByName('descricao').AsString;
     liItem.Tag := DM.qryAssunto.FieldByName('assuntoid').AsInteger;
 
